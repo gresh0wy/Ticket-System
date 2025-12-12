@@ -1,0 +1,576 @@
+    // ---------------------------------------------
+    // VARIABLES
+    // ---------------------------------------------
+    $primary: #0f7ff0;
+    $bg-light: #f5f7f8;
+    $bg-dark: #101922;
+    $card-light: #ffffff;
+    $card-dark: #1a232e;
+    $text-primary: #111418;
+    $text-secondary: #60758a;
+    $border: #e5e7eb;
+    $muted: #f0f2f5;
+    $destructive: #d32f2f;
+
+    // ---------------------------------------------
+    // ROOT THEME
+    // ---------------------------------------------
+    :root {
+        --bg: #{$bg-light};
+        --card: #{$card-light};
+        --text: #{$text-primary};
+        --text-sec: #{$text-secondary};
+        --border: #{$border};
+        --muted: #{$muted};
+
+        --accent: #007ECC;
+        --accent-2: #EC2F4B;
+        --text-hover: #000000;
+        --text-active: #000000;
+        --border-width: 0.15em;
+    }
+
+
+
+    // ---------------------------------------------
+    // GLOBAL RESET
+    // ---------------------------------------------
+    html {
+        font-size: 62.5%;
+    }
+
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    // ---------------------------------------------
+    // NAVIGATION
+    // ---------------------------------------------
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        min-height: 80px;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+        .boxNav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1600px;
+            padding: 0 1.5rem;
+
+            @media (min-width: 1024px) {
+                padding: 0 2.5rem;
+            }
+
+            // LOGO
+            .leftSide {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                cursor: pointer;
+                user-select: none;
+
+                .logo-icon {
+                    scale: 1.5;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $primary;
+                }
+
+                .logo-text {
+                    font-size: 3rem;
+                    font-weight: 700;
+                    letter-spacing: -0.015em;
+                    color: var(--text);
+                    text-decoration: none;
+                }
+            }
+
+            // NAV LINKS
+            .rightSide {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+
+                a {
+                    padding: 0.5rem 1rem;
+                    text-decoration: none;
+                    color: var(--text-sec);
+                    font-weight: 500;
+                    border-radius: 0.5rem;
+                    font-size: 1.8rem;
+                    transition: all 0.2s ease;
+
+                    &:hover {
+                        color: $primary;
+                        background: rgba($primary, 0.1);
+                    }
+
+                    &:active {
+                        transform: translateY(1px);
+                    }
+                }
+
+                // HIGHLIGHTED ADMIN LINK
+                a[href*="admin"] {
+                    font-weight: 700;
+                    background: rgba($primary, 0.1);
+                    color: $primary;
+
+                    &:hover {
+                        background: rgba($primary, 0.2);
+                    }
+                }
+            }
+        }
+
+        // MOBILE
+        @media (max-width: 768px) {
+            .boxNav {
+                padding: 0 1rem;
+
+                .rightSide {
+                    gap: 1rem;
+
+                    a {
+                        padding: 0.5rem 0.75rem;
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 3rem 0 2rem;
+
+        height: 20vh;
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+        }
+
+        span {
+            color: var(--text-sec);
+            font-size: 1.6rem;
+        }
+    }
+
+    .sectionForum {
+        width: 1200px;
+        height: auto;
+        border-radius: 12px;
+        padding: 2em;
+        margin: 0 auto;
+        background-color: rgb(255, 255, 255);
+
+        p {
+            margin: 1em 0;
+        }
+
+
+        form {
+            height: 100%;
+
+            // ------------------ IMIĘ I NAZWISKO + NUMER WEWNĘTRZNY (boxConcat) ------------------
+            .boxConcat {
+                display: flex;
+                justify-content: space-between;
+                gap: 2rem;
+                width: 100%;
+                flex-wrap: wrap;
+
+                label {
+                    // Domyślnie wszystkie pola są równe i elastyczne
+                    flex: 1;
+                    min-width: 280px;
+
+                    p {
+                        margin-bottom: 0.8rem;
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                        color: #333;
+                    }
+
+                    // Styl dla inputów i selectów
+                    input,
+                    select {
+                        width: 100%;
+                        padding: 1.2rem 1.5rem;
+                        font-size: 1.5rem;
+                        border: 1px solid var(--border);
+                        border-radius: 8px;
+                        background: #fff;
+                        transition: border 0.3s, box-shadow 0.3s;
+
+                        &:focus {
+                            outline: none;
+                            border-color: $primary;
+                            box-shadow: 0 0 0 3px rgba($primary, 0.15);
+                        }
+
+                        &::placeholder {
+                            color: var(--text-sec);
+                        }
+
+                        // Usuwanie strzałek w polu numerowym
+                        &[type="number"] {
+                            -moz-appearance: textfield;
+                            appearance: textfield;
+
+                            &::-webkit-inner-spin-button,
+                            &::-webkit-outer-spin-button {
+                                -webkit-appearance: none;
+                                margin: 0;
+                            }
+                        }
+                    }
+
+                    // Strzałka w dół dla selecta (tak jak w departamentach)
+                    &.select-wrapper {
+                        position: relative;
+
+                        select {
+                            appearance: none;
+                            cursor: pointer;
+
+                            &::-ms-expand {
+                                display: none;
+                            }
+                        }
+
+                        &::after {
+                            content: "expand_more";
+                            font-family: "Material Symbols Outlined";
+                            position: absolute;
+                            right: 1.2rem;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 2.4rem;
+                            color: var(--text-sec);
+                            pointer-events: none;
+                        }
+                    }
+                }
+
+                // Kluczowa zmiana: trzeci label (Miejsce zgłoszenia) ma 100% szerokości
+                label:nth-child(3) {
+                    flex: 100%; // zajmuje całą szerokość
+                    min-width: 100%; // nie pozwala się zwęzić
+                }
+
+                // Responsywność – na mobile wszystko jedno pod drugim
+                @media (max-width: 768px) {
+                    gap: 2rem;
+
+                    label {
+                        min-width: 100%;
+                    }
+
+                    label:nth-child(3) {
+                        flex: 100%;
+                    }
+                }
+            }
+
+            // ------------------ TREŚĆ ZGŁOSZENIA (boxTicket) ------------------
+            .boxTicket {
+                width: 100%;
+
+                label {
+                    display: block;
+                    margin-bottom: 0.8rem;
+                    font-weight: 600;
+                    font-size: 1.6rem;
+                    color: #333;
+                }
+
+                input,
+                textarea {
+                    width: 100%;
+                    padding: 1.2rem 1.5rem;
+                    font-size: 1.5rem;
+                    border: 1px solid var(--border);
+                    border-radius: 8px;
+                    background: #fff;
+                    transition: border 0.3s, box-shadow 0.3s;
+                    resize: vertical;
+                    min-height: 20px; // textarea ma minimum wysokości
+
+                    &:focus {
+                        outline: none;
+                        border-color: $primary;
+                        box-shadow: 0 0 0 3px rgba($primary, 0.15);
+                    }
+
+                    &::placeholder {
+                        color: var(--text-sec);
+                    }
+                }
+
+                textarea {
+                    min-height: 100px;
+                }
+
+                // jeśli w .boxTicket będzie input typu file albo inny – można dodać
+                input[type="file"] {
+                    padding: 0.8rem;
+                }
+            }
+
+            // ------------------ DEPARTAMENT + KATEGORIA ------------------
+            .department-group {
+                display: flex;
+                justify-content: space-between;
+                gap: 3rem;
+                width: 100%;
+                flex-wrap: wrap; // na mobile się zawinie
+
+                .boxDepartament,
+                .boxCategory {
+                    flex: 1;
+                    min-width: 280px;
+
+                    p {
+                        margin-bottom: 0.8rem;
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                        color: #333;
+                    }
+
+                    .select-wrapper {
+                        position: relative;
+
+                        select {
+                            width: 100%;
+                            padding: 1.2rem 1.5rem;
+                            font-size: 1.5rem;
+                            border: 1px solid var(--border);
+                            border-radius: 8px;
+                            background: #fff;
+                            appearance: none;
+                            cursor: pointer;
+                            transition: border 0.3s, box-shadow 0.3s;
+
+                            &:focus {
+                                outline: none;
+                                border-color: $primary;
+                                box-shadow: 0 0 0 3px rgba($primary, 0.15);
+                            }
+
+                            // strzałka w dół
+                            &::-ms-expand {
+                                display: none;
+                            }
+                        }
+
+                        &::after {
+                            content: "expand_more";
+                            font-family: "Material Symbols Outlined";
+                            position: absolute;
+                            right: 1.2rem;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            font-size: 2.4rem;
+                            color: var(--text-sec);
+                            pointer-events: none;
+                        }
+                    }
+                }
+            }
+
+            // suwaki 
+            .CategoryPriority {
+                width: 100%;
+                display: flex;
+                justify-content: space-between; // to zostaje
+                align-items: center; // to zostaje
+                flex-wrap: wrap; // opcjonalnie – na bardzo małych ekranach
+                gap: 4rem;
+
+
+
+                .toggle {
+                    width: 100%; // teraz wypełnia całą szerokość
+                    display: flex;
+                    justify-content: space-between; // ← teraz działa!
+                    align-items: center;
+                    gap: 4rem; // odstęp między dwoma toggle-group
+                    flex-wrap: wrap;
+                }
+
+                .toggle p {
+                    margin: 1em 0 0.5rem 0;
+                    font-size: 1.6rem;
+                    font-weight: 600;
+                    color: #333;
+                }
+
+                /* Główna klasa wspólna dla obu grup */
+                .toggle-group {
+                    --bg: rgba(255, 255, 255, 0.06);
+                    --text: #e5e5e5;
+
+                    display: flex;
+                    position: relative;
+                    background-color: #f0f2f5;
+                    border-radius: 1rem;
+                    margin: 1em 0;
+                    overflow: hidden;
+                    padding: 0.3em;
+                    width: 340px; // szerokość na desktopie
+                    max-width: 100%;
+                    box-sizing: border-box;
+                }
+
+                /* Responsywność – na mobile wypełnia całą szerokość */
+                @media (max-width: 768px) {
+                    .toggle-group {
+                        width: 100%;
+                        margin: 0.8em 0;
+                        padding: 0.25em; // trochę mniejszy padding na małych ekranach
+                    }
+
+                    .toggle-group .toggle-label {
+                        padding: 0.7rem 0.8rem; // mniejsze paddingi na telefonach
+                        font-size: 13px;
+                        min-width: 0; // pozwala się zwężać
+                    }
+                }
+
+                /* Ukrycie domyślnych radio */
+                .toggle-group input {
+                    display: none;
+                }
+
+                /* Styl labeli */
+                .toggle-group .toggle-label {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 14px;
+                    padding: 0.8rem 1rem;
+                    cursor: pointer;
+                    font-weight: 600;
+                    letter-spacing: 0.3px;
+                    color: #333;
+                    position: relative;
+                    z-index: 2;
+                    transition: color 0.3s ease-in-out;
+                    text-align: center;
+                }
+
+                .toggle-group .toggle-label:hover {
+                    color: #000;
+                }
+
+                /* Kolor tekstu po zaznaczeniu */
+                .toggle-group input:checked+.toggle-label {
+                    color: #000000;
+                    font-weight: 700;
+                }
+
+                /* Slider */
+                .toggle-group .slider {
+                    position: absolute;
+                    top: 0.3em;
+                    bottom: 0.3em;
+                    left: 0.3em;
+                    width: calc((100% - 0.6em) / 3);
+                    border-radius: calc(1rem - 0.3em);
+                    background: #fff;
+                    z-index: 1;
+                    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                /* Pozycje slidera */
+                #priority-low:checked~.slider,
+                #freq-once:checked~.slider {
+                    transform: translateX(0%);
+                }
+
+                #priority-medium:checked~.slider,
+                #freq-rare:checked~.slider {
+                    transform: translateX(100%);
+                }
+
+                #priority-high:checked~.slider,
+                #freq-frequent:checked~.slider {
+                    transform: translateX(200%);
+                }
+
+                /* Opcjonalnie – ładne kolory dla aktywnych opcji */
+                .toggle-group input:checked+.first {
+                    color: #006400 !important; // zielony dla "Niski" i "Jednorazowo"
+                }
+
+                .toggle-group input:checked+.second {
+                    color: #8b4513 !important; // brązowy/pomarańczowy dla "Średni" i "Rzadko"
+                }
+
+                .toggle-group input:checked+.third {
+                    color: #8b0000 !important; // czerwony dla "Wysoki"
+                }
+            }
+        }
+
+        .btn-submit {
+            width: 100%;
+            max-width: 340px; // ładna szerokość, nie za szeroki
+            margin: 3rem auto 1rem; // większy odstęp od góry i dołu
+            padding: 1.4rem 2.5rem;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #ffffff;
+            background: #4a90e2; // delikatny, szpitalny niebieski (nie jaskrawy)
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25); // subtelny cień w kolorze przycisku
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit:hover {
+            background: #3a7bc8; // ciemniejszy odcień przy najechaniu
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(74, 144, 226, 0.35);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
+        }
+    }
