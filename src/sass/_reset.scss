@@ -1,0 +1,52 @@
+    :root {
+        --bg: #{$bg-light};
+        --card: #{$card-light};
+        --text: #{$text-primary-light};
+        --text-sec: #{$text-secondary-light};
+        --border: #{$border-light};
+        --muted: #{$muted-light};
+        --accent: #{$accent};
+        --accent-2: #{$accent-2};
+        --border-width: 0.15em;
+    }
+
+    // Dark mode – np. przez klasę na <html> lub <body>
+    .dark {
+        --bg: #{$bg-dark};
+        --card: #{$card-dark};
+        --text: #{$text-primary-dark};
+        --text-sec: #{$text-secondary-dark};
+        --border: #{$border-dark};
+        --muted: #{$muted-dark};
+    }
+
+
+
+
+    html {
+        font-size: 62.5%;
+    }
+
+    *,
+    ::after,
+    ::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    footer {
+        margin-top: auto; // KLUCZ
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        width: 100%;
+    }

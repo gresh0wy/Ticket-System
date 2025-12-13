@@ -12,12 +12,47 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/default');
 
 
-app.listen(port, () => {
-    console.log(`serwer słucha na porcie: ${port}`);
-})
 
 
 
 app.get('/', (req, res) => {
-    res.render('pages/formTicket')
+    res.render('pages/formTicket',
+        {
+            tittle: 'Zgłoś problem'
+        }
+    )
+})
+
+app.get('/login', (req, res) => {
+    res.render('pages/loginPage',
+        {
+            tittle: 'Strona logowania'
+        }
+    )
+})
+
+app.use((req, res) => {
+    res.status(404).render('errors/404',
+        {
+            tittle: 'strona nie odnaleziona',
+            layout: 'layouts/errorLayouts'
+        }
+    )
+})
+
+app.use((req, res) => {
+    res.status(403).render('errors/403',
+        {
+            tittle: 'Brak dostępu',
+            layout: 'layouts/errorLayouts'
+        }
+    )
+})
+
+
+
+
+
+app.listen(port, () => {
+    console.log(`serwer słucha na porcie: ${port}`);
 })

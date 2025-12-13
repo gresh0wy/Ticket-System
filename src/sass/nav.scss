@@ -1,0 +1,113 @@
+@use "colors" as *;
+@import "reset";
+
+body {
+    font-family: "Inter", sans-serif;
+}
+
+// ---------------------------------------------
+// NAVIGATION
+// ---------------------------------------------
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 80px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+    .boxNav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1600px;
+        padding: 0 1.5rem;
+
+        @media (min-width: 1024px) {
+            padding: 0 2.5rem;
+        }
+
+        // LOGO
+        .leftSide {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            user-select: none;
+
+            .logo-icon {
+                scale: 1.5;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $primary;
+            }
+
+            .logo-text {
+                font-size: 3rem;
+                font-weight: 700;
+                letter-spacing: -0.015em;
+                color: var(--text);
+                text-decoration: none;
+            }
+        }
+
+        // NAV LINKS
+        .rightSide {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+
+            a {
+                padding: 0.5rem 1rem;
+                text-decoration: none;
+                color: var(--text-sec);
+                font-weight: 500;
+                border-radius: 0.5rem;
+                font-size: 1.8rem;
+                transition: all 0.2s ease;
+
+                &:hover {
+                    color: $primary;
+                    background: rgba($primary, 0.1);
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
+
+            // HIGHLIGHTED ADMIN LINK
+            a[href*="admin"] {
+                font-weight: 700;
+                background: rgba($primary, 0.1);
+                color: $primary;
+
+                &:hover {
+                    background: rgba($primary, 0.2);
+                }
+            }
+        }
+    }
+
+    // MOBILE
+    @media (max-width: 768px) {
+        .boxNav {
+            padding: 0 1rem;
+
+            .rightSide {
+                gap: 1rem;
+
+                a {
+                    padding: 0.5rem 0.75rem;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}

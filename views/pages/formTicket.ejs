@@ -1,37 +1,6 @@
-<!DOCTYPE html>
-<html lang="pl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zgłoś problem</title>
-
-    <!-- Google Fonts – identyczne jak w oryginale -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
-
-    <!-- Nasz Sass → CSS -->
-    <link rel="stylesheet" href="/frontend/public/css/formTicket.css">
-</head>
-
 <body>
 
-    <nav>
-        <div class="boxNav">
-            <div class="leftSide">
-                <div class="logo-icon">
-                    <span class="material-symbols-outlined">local_hospital</span>
-                </div>
-                <a href="" class="logo-text">MedTicket</a>
-            </div>
-            <div class="rightSide">
-                <a href="">Home</a>
-                <a href="">Status zgłoszenia</a>
-                <a href="">Logowanie Administracji</a>
-            </div>
-        </div>
-    </nav>
+   
 
     <header>
         <h1>Zgłoś problem</h1>
@@ -41,7 +10,7 @@
 
     <section class="sectionForum">
 
-        <form action="">
+        <form action="/send.html">
 
             <div class="userData">
                 <label for="">
@@ -72,11 +41,11 @@
                     <div class="select-wrapper">
                         <select name="" id="">
                             <option disabled="" selected="" value="">Wybierz dział</option>
-                            <option value="it">Wsparcie IT (Komputery, Sieć)</option>
-                            <option value="medical">Sprzęt Medyczny</option>
-                            <option value="facilities">Utrzymanie Czystości / Budynek</option>
-                            <option value="access">Karty Dostępu / Ochrona</option>
-                            <option value="other">Inne</option>
+                            <option value="it">Dział informatyki</option>
+                            <option value="medical">Aparatura medyczna</option>
+                            <option value="facilities">Sekcja elektryczna</option>
+                            <option value="access">Dział budowlany</option>
+                            <option value="other">Cyberbezpieczenstwo</option>
                         </select>
                     </div>
                 </div>
@@ -152,7 +121,3 @@
         </form>
 
     </section>
-
-</body>
-
-</html>
