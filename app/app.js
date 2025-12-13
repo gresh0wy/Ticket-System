@@ -70,7 +70,7 @@ app.post('/tickets', async (req, res) => {
         });
     } catch (err) {
         console.error('Błąd SQL:', err);
-        res.status(500).send('❌ Błąd podczas zapisywania zgłoszenia.');
+        res.status(500).send(`Błąd podczas zapisywania zgłoszenia. ${err}`);
     }
 });
 
