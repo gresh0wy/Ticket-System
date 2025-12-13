@@ -1,15 +1,34 @@
 <nav>
     <div class="boxNav">
+        <!-- Logo -->
         <div class="leftSide">
             <div class="logo-icon">
                 <span class="material-symbols-outlined">local_hospital</span>
             </div>
             <a href="/" class="logo-text">MedTicket</a>
         </div>
+
+        <!-- Linki desktop -->
         <div class="rightSide">
             <a href="/">Home</a>
             <a href="">Status zgłoszenia</a>
             <a href="/login">Logowanie Administracji</a>
         </div>
+
+        <!-- Przycisk hamburgera (widoczny tylko na mobile) -->
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 </nav>
+
+<!-- Mobilne menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="/">Home</a>
+    <a href="">Status zgłoszenia</a>
+    <a href="/login">Logowanie Administracji</a>
+</div>
+
+<script src="/js/mainJs.js"></script>

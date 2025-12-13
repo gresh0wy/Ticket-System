@@ -1,7 +1,6 @@
 @use "colors" as *;
 @import "reset";
 
-
 body {
     margin: 0;
     font-family: "Inter", sans-serif;
@@ -11,15 +10,12 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-
-
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 3rem 0 2rem;
-
+    margin: 3rem 2rem;
     height: 20vh;
 
     h1 {
@@ -35,21 +31,20 @@ header {
 
 .sectionForum {
     width: 1200px;
-    height: auto;
-    border-radius: 12px;
-    padding: 2em;
+    max-width: 95%;
     margin: 0 auto;
+    padding: 2em;
     background-color: rgb(255, 255, 255);
+    border-radius: 12px;
 
     p {
         margin: 1em 0;
     }
 
-
     form {
         height: 100%;
 
-        // ------------------ IMIĘ I NAZWISKO + NUMER WEWNĘTRZNY (userData) ------------------
+        // ------------------ IMIĘ I NAZWISKO + NUMER WEWNĘTRZNY + MIEJSCE ZGŁOSZENIA ------------------
         .userData {
             display: flex;
             justify-content: space-between;
@@ -58,7 +53,6 @@ header {
             flex-wrap: wrap;
 
             label {
-                // Domyślnie wszystkie pola są równe i elastyczne
                 flex: 1;
                 min-width: 280px;
 
@@ -69,7 +63,6 @@ header {
                     color: #333;
                 }
 
-                // Styl dla inputów i selectów
                 input,
                 select {
                     width: 100%;
@@ -77,7 +70,7 @@ header {
                     font-size: 1.5rem;
                     border: 1px solid var(--border);
                     border-radius: 8px;
-                    background: #fff;
+                    background-color: #fff;
                     transition: border 0.3s, box-shadow 0.3s;
 
                     &:focus {
@@ -90,7 +83,6 @@ header {
                         color: var(--text-sec);
                     }
 
-                    // Usuwanie strzałek w polu numerowym
                     &[type="number"] {
                         -moz-appearance: textfield;
                         appearance: textfield;
@@ -102,57 +94,33 @@ header {
                         }
                     }
                 }
-
-                // Strzałka w dół dla selecta (tak jak w departamentach)
-                &.select-wrapper {
-                    position: relative;
-
-                    select {
-                        appearance: none;
-                        cursor: pointer;
-
-                        &::-ms-expand {
-                            display: none;
-                        }
-                    }
-
-                    &::after {
-                        content: "expand_more";
-                        font-family: "Material Symbols Outlined";
-                        position: absolute;
-                        right: 1.2rem;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        font-size: 2.4rem;
-                        color: var(--text-sec);
-                        pointer-events: none;
-                    }
-                }
             }
 
-            // Kluczowa zmiana: trzeci label (Miejsce zgłoszenia) ma 100% szerokości
+            // Miejsce zgłoszenia na całą szerokość
             label:nth-child(3) {
-                flex: 100%; // zajmuje całą szerokość
-                min-width: 100%; // nie pozwala się zwęzić
+                flex: 1 1 100%;
+                min-width: 100%;
+                margin-top: -1rem;
             }
 
-            // Responsywność – na mobile wszystko jedno pod drugim
+            // Na mobile – wszystko jedno pod drugim
             @media (max-width: 768px) {
-                gap: 2rem;
+                flex-direction: column;
+                gap: 1.5rem;
 
                 label {
                     min-width: 100%;
+                    flex: 1 1 100%;
                 }
 
-                label:nth-child(3) {
-                    flex: 100%;
-                }
+
             }
         }
 
-        // ------------------ TREŚĆ ZGŁOSZENIA (boxTicket) ------------------
+        // ------------------ TREŚĆ ZGŁOSZENIA ------------------
         .boxTicket {
             width: 100%;
+            margin-top: 2rem;
 
             label {
                 display: block;
@@ -172,7 +140,6 @@ header {
                 background: #fff;
                 transition: border 0.3s, box-shadow 0.3s;
                 resize: vertical;
-                min-height: 20px; // textarea ma minimum wysokości
 
                 &:focus {
                     outline: none;
@@ -189,7 +156,6 @@ header {
                 min-height: 100px;
             }
 
-            // jeśli w .boxTicket będzie input typu file albo inny – można dodać
             input[type="file"] {
                 padding: 0.8rem;
             }
@@ -201,7 +167,8 @@ header {
             justify-content: space-between;
             gap: 3rem;
             width: 100%;
-            flex-wrap: wrap; // na mobile się zawinie
+            flex-wrap: wrap;
+            margin-top: 2rem;
 
             .boxDepartament,
             .boxCategory {
@@ -235,7 +202,6 @@ header {
                             box-shadow: 0 0 0 3px rgba($primary, 0.15);
                         }
 
-                        // strzałka w dół
                         &::-ms-expand {
                             display: none;
                         }
@@ -254,141 +220,159 @@ header {
                     }
                 }
             }
+
+            @media (max-width: 768px) {
+                flex-direction: column;
+                gap: 2rem;
+
+                .boxDepartament,
+                .boxCategory {
+                    min-width: 100%;
+                }
+            }
         }
 
         // suwaki 
         .CategoryPriority {
             width: 100%;
+            margin: 5rem 0;
             display: flex;
-            justify-content: space-between; // to zostaje
-            align-items: center; // to zostaje
-            flex-wrap: wrap; // opcjonalnie – na bardzo małych ekranach
-            gap: 4rem;
-
-
+            justify-content: center;
 
             .toggle {
-                width: 100%; // teraz wypełnia całą szerokość
+                width: 100%;
+                max-width: 760px; // wystarczająco na dwa suwaki obok siebie + odstęp
                 display: flex;
-                justify-content: center; // 
-                align-items: center;
-                gap: 4rem; // odstęp między dwoma toggle-group
-                flex-wrap: wrap;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 4rem; // odstęp między suwakami na desktopie
+                flex-wrap: wrap; // kluczowe dla mobile
+
+                .toggle-wrapper {
+                    flex: 1;
+                    min-width: 300px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    p {
+                        margin: 0 0 0.8rem 0;
+                        font-size: 1.6rem;
+                        font-weight: 600;
+                        color: #333;
+                        text-align: center;
+                    }
+                }
             }
 
-            .toggle p {
-                margin: 1em 0 0.5rem 0;
-                font-size: 1.6rem;
-                font-weight: 600;
-                color: #333;
-            }
-
-            /* Główna klasa wspólna dla obu grup */
             .toggle-group {
-                --bg: rgba(255, 255, 255, 0.06);
-                --text: #e5e5e5;
-
-                display: flex;
                 position: relative;
+                display: flex;
                 background-color: #f0f2f5;
                 border-radius: 1rem;
-                margin: 1em 0;
                 overflow: hidden;
                 padding: 0.3em;
-                width: 340px; // szerokość na desktopie
+                width: 340px;
                 max-width: 100%;
                 box-sizing: border-box;
+
+                input {
+                    display: none;
+                }
+
+                .toggle-label {
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.8rem 1rem;
+                    margin: 0 auto;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    color: #333;
+                    cursor: pointer;
+                    z-index: 2;
+                    transition: color 0.3s ease;
+
+                    &:hover {
+                        color: #000;
+                    }
+                }
+
+                input:checked+.toggle-label {
+                    color: #000;
+                    font-weight: 700;
+                }
+
+                // Kolory dla wybranej opcji
+                input:checked+.toggle-label:nth-of-type(1) {
+                    color: #006400;
+                }
+
+                // zielony
+                input:checked+.toggle-label:nth-of-type(2) {
+                    color: #d6a617;
+                }
+
+                // pomarańczowy
+                input:checked+.toggle-label:nth-of-type(3) {
+                    color: #8b0000;
+                }
+
+                // czerwony
+
+                .slider {
+                    position: absolute;
+                    top: 0.3em;
+                    bottom: 0.3em;
+                    left: 0.3em;
+                    width: calc((100% - 0.6em) / 3);
+                    background: #fff;
+                    border-radius: calc(1rem - 0.3em);
+                    z-index: 1;
+                    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+                }
+
+                // Pozycje slidera
+                &:has(#priority-low:checked) .slider,
+                &:has(#freq-once:checked) .slider {
+                    transform: translateX(0%);
+                }
+
+                &:has(#priority-medium:checked) .slider,
+                &:has(#freq-rare:checked) .slider {
+                    transform: translateX(100%);
+                }
+
+                &:has(#priority-high:checked) .slider,
+                &:has(#freq-frequent:checked) .slider {
+                    transform: translateX(200%);
+                }
             }
 
-            /* Responsywność – na mobile wypełnia całą szerokość */
+            // Responsywność – mobile
             @media (max-width: 768px) {
-                .toggle-group {
-                    width: 100%;
-                    margin: 0.8em 0;
-                    padding: 0.25em; // trochę mniejszy padding na małych ekranach
+                .toggle {
+                    gap: 2rem;
+                    flex-direction: column;
+                    align-items: stretch;
+
+                    .toggle-wrapper {
+                        min-width: unset;
+                        width: 100%;
+                    }
+
+                    .toggle-group {
+                        width: 100%;
+                        padding: 0.25em;
+
+                        .toggle-label {
+                            padding: 0.8rem 0.6rem;
+                            font-size: 1.3rem; // trochę większy tekst na mobile dla lepszej czytelności
+                        }
+                    }
                 }
-
-                .toggle-group .toggle-label {
-                    padding: 0.7rem 0.8rem; // mniejsze paddingi na telefonach
-                    font-size: 13px;
-                    min-width: 0; // pozwala się zwężać
-                }
-            }
-
-            /* Ukrycie domyślnych radio */
-            .toggle-group input {
-                display: none;
-            }
-
-            /* Styl labeli */
-            .toggle-group .toggle-label {
-                flex: 1;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 14px;
-                padding: 0.8rem 1rem;
-                cursor: pointer;
-                font-weight: 600;
-                letter-spacing: 0.3px;
-                color: #333;
-                position: relative;
-                z-index: 2;
-                transition: color 0.3s ease-in-out;
-                text-align: center;
-            }
-
-            .toggle-group .toggle-label:hover {
-                color: #000;
-            }
-
-            /* Kolor tekstu po zaznaczeniu */
-            .toggle-group input:checked+.toggle-label {
-                color: #000000;
-                font-weight: 700;
-            }
-
-            /* Slider */
-            .toggle-group .slider {
-                position: absolute;
-                top: 0.3em;
-                bottom: 0.3em;
-                left: 0.3em;
-                width: calc((100% - 0.6em) / 3);
-                border-radius: calc(1rem - 0.3em);
-                background: #fff;
-                z-index: 1;
-                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            }
-
-            /* Pozycje slidera */
-            #priority-low:checked~.slider,
-            #freq-once:checked~.slider {
-                transform: translateX(0%);
-            }
-
-            #priority-medium:checked~.slider,
-            #freq-rare:checked~.slider {
-                transform: translateX(100%);
-            }
-
-            #priority-high:checked~.slider,
-            #freq-frequent:checked~.slider {
-                transform: translateX(200%);
-            }
-
-            /* Opcjonalnie – ładne kolory dla aktywnych opcji */
-            .toggle-group input:checked+.first {
-                color: #006400 !important; // zielony dla "Niski" i "Jednorazowo"
-            }
-
-            .toggle-group input:checked+.second {
-                color: #8b4513 !important; // brązowy/pomarańczowy dla "Średni" i "Rzadko"
-            }
-
-            .toggle-group input:checked+.third {
-                color: #8b0000 !important; // czerwony dla "Wysoki"
             }
         }
     }

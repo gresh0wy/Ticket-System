@@ -1,6 +1,6 @@
 <body>
 
-   
+
 
     <header>
         <h1>Zgłoś problem</h1>
@@ -37,7 +37,7 @@
 
             <div class="ticketDestination ">
                 <div class="boxDepartament">
-                    <p>Dział</p>
+                    <p>Dział docelowy</p>
                     <div class="select-wrapper">
                         <select name="" id="">
                             <option disabled="" selected="" value="">Wybierz dział</option>
@@ -77,37 +77,30 @@
                 </label>
             </div>
 
-
             <div class="CategoryPriority">
                 <div class="toggle">
-                    <div class="priority">
+                    <div class="toggle-wrapper priority">
                         <p>Priorytet zgłoszenia</p>
                         <div class="toggle-group">
                             <input type="radio" name="priority" id="priority-low" value="low" checked />
-                            <label for="priority-low" class="toggle-label first">Niski</label>
-
+                            <label for="priority-low" class="toggle-label">Niski</label>
                             <input type="radio" name="priority" id="priority-medium" value="medium" />
-                            <label for="priority-medium" class="toggle-label second">Średni</label>
-
+                            <label for="priority-medium" class="toggle-label">Średni</label>
                             <input type="radio" name="priority" id="priority-high" value="high" />
-                            <label for="priority-high" class="toggle-label third">Wysoki</label>
-
+                            <label for="priority-high" class="toggle-label">Wysoki</label>
                             <div class="slider"></div>
                         </div>
                     </div>
 
-                    <div class="repeatability">
+                    <div class="toggle-wrapper repeatability">
                         <p>Powtarzalność</p>
                         <div class="toggle-group">
                             <input type="radio" name="frequency" id="freq-once" value="once" checked />
-                            <label for="freq-once" class="toggle-label first">Jednorazowo</label>
-
+                            <label for="freq-once" class="toggle-label">Jednorazowo</label>
                             <input type="radio" name="frequency" id="freq-rare" value="rare" />
-                            <label for="freq-rare" class="toggle-label second">Rzadko</label>
-
+                            <label for="freq-rare" class="toggle-label">Rzadko</label>
                             <input type="radio" name="frequency" id="freq-frequent" value="frequent" />
-                            <label for="freq-frequent" class="toggle-label third">Często</label>
-
+                            <label for="freq-frequent" class="toggle-label">Często</label>
                             <div class="slider"></div>
                         </div>
                     </div>

@@ -1,13 +1,6 @@
 @use "colors" as *;
 @import "reset";
 
-body {
-    font-family: "Inter", sans-serif;
-}
-
-// ---------------------------------------------
-// NAVIGATION
-// ---------------------------------------------
 nav {
     position: sticky;
     top: 0;
@@ -32,7 +25,7 @@ nav {
             padding: 0 2.5rem;
         }
 
-        // LOGO
+        // Logo
         .leftSide {
             display: flex;
             align-items: center;
@@ -46,6 +39,10 @@ nav {
                 align-items: center;
                 justify-content: center;
                 color: $primary;
+
+                .material-symbols-outlined {
+                    font-size: 3.2rem;
+                }
             }
 
             .logo-text {
@@ -57,7 +54,7 @@ nav {
             }
         }
 
-        // NAV LINKS
+        // Linki desktop
         .rightSide {
             display: flex;
             align-items: center;
@@ -82,8 +79,8 @@ nav {
                 }
             }
 
-            // HIGHLIGHTED ADMIN LINK
-            a[href*="admin"] {
+            // Podświetlenie linku admina (jeśli chcesz)
+            a[href="/login"] {
                 font-weight: 700;
                 background: rgba($primary, 0.1);
                 color: $primary;
@@ -93,21 +90,110 @@ nav {
                 }
             }
         }
+
+        // Hamburger
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            padding: 8px;
+            cursor: pointer;
+            z-index: 60;
+
+            span {
+                width: 28px;
+                height: 3px;
+                background: var(--text);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+
+            &.active {
+                span:nth-child(1) {
+                    transform: translateY(9px) rotate(45deg);
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:nth-child(3) {
+                    transform: translateY(-9px) rotate(-45deg);
+                }
+            }
+        }
     }
 
-    // MOBILE
+    // Responsywność
     @media (max-width: 768px) {
         .boxNav {
             padding: 0 1rem;
 
-            .rightSide {
-                gap: 1rem;
-
-                a {
-                    padding: 0.5rem 0.75rem;
-                    font-size: 1.4rem;
-                }
+            .rightSide a {
+                font-size: 1.5rem;
+                padding: 0.5rem 0.8rem;
             }
         }
+    }
+
+    // Aktywacja hamburgera od 567px
+    @media (max-width: 567px) {
+        .boxNav {
+            padding: 0 1.2rem;
+
+            .rightSide {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+    }
+}
+
+// Mobilne menu (pełnoekranowe)
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--card);
+    z-index: 55;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    a {
+        font-size: 2.8rem;
+        font-weight: 600;
+        color: var(--text-sec);
+        text-decoration: none;
+
+        margin: 1em;
+        border-radius: 1rem;
+        text-align: center;
+        transition: all 0.3s ease;
+
+        &:hover {
+            color: $primary;
+            background: rgba($primary, 0.1);
+        }
+
+
     }
 }

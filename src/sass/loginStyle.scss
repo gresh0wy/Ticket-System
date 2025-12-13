@@ -9,9 +9,10 @@ body {
 
 /* Układ siatki */
 .grid_container {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    min-height: 80vh;
 
 }
 
@@ -37,6 +38,7 @@ body {
     /* Wyśrodkowuje obraz */
     background-repeat: no-repeat;
     /* Zapobiega powtarzaniu */
+    scale: .8;
 }
 
 .logo_zeroms {
@@ -142,6 +144,8 @@ input[type='password']:focus {
     box-shadow: 0 8px 20px rgba(74, 144, 226, 0.35);
 }
 
+
+
 @media (width >768px) {
     .item2 {
         background-size: 100%;
@@ -172,4 +176,21 @@ input[type='password']:focus {
     .login_form {
         padding: 2em;
     }
+}
+
+.infoLoginContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 30%;
+    border-radius: 12px;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    background-color: #e96a21f5;
 }
