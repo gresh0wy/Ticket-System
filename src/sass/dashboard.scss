@@ -2,23 +2,64 @@
 @import "reset";
 
 
+
 .company-sections {
     display: flex;
 
     flex-direction: column;
+    margin: 0 auto;
+    width: 1200px;
     height: 80vh;
 
+
+
+
+    .company-section__text {
+        padding: 1em 1em;
+    }
+
     .company-sections__container {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-wrap: wrap;
         width: 1200px;
-        height: auto;
+        margin: 0 auto;
+        height: 90vh;
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 2rem;
+        }
 
         .company-sections__link {
-            width: 30px;
-            height: 30px;
-            background-color: tomato;
+            display: flex;
+            align-items: end;
+            width: 30%;
+            height: 10em;
+            padding: 1em;
+            margin: 1em;
+            border-radius: 8px;
+            background-color: rgb(106, 128, 128);
 
-            .ompany-sections__link--it {}
+
 
         }
+
+        .company-sections__link--it {
+
+            background-image: url(/img/serwery.jpg);
+            background-size: cover;
+
+
+        }
+
+        .company-sections__link--electric {
+            background-image: url(/img/ev.jpg);
+            background-size: cover;
+        }
+
+
     }
 }
