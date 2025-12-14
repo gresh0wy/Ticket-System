@@ -65,16 +65,18 @@ header span {
 
 .sectionForum {
   width: 1200px;
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
   background-color: rgb(255, 255, 255);
   border-radius: 12px;
+  margin-bottom: 3em;
 }
 .sectionForum p {
   margin: 1em 0;
 }
 .sectionForum form {
   height: 100%;
+  padding: 1em;
 }
 .sectionForum form .userData {
   display: flex;
@@ -373,7 +375,7 @@ header span {
 .sectionForum .btn-submit {
   width: 100%;
   max-width: 340px;
-  margin: 3rem auto 1rem;
+  margin: 3rem auto 3rem;
   padding: 1.4rem 2.5rem;
   font-size: 1.7rem;
   font-weight: 600;

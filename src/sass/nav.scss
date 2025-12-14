@@ -80,15 +80,15 @@ nav {
             }
 
             // Podświetlenie linku admina (jeśli chcesz)
-            a[href="/login"] {
-                font-weight: 700;
-                background: rgba($primary, 0.1);
-                color: $primary;
+            // a[href="/login"] {
+            //     font-weight: 700;
+            //     background: rgba($primary, 0.1);
+            //     color: $primary;
 
-                &:hover {
-                    background: rgba($primary, 0.2);
-                }
-            }
+            //     &:hover {
+            //         background: rgba($primary, 0.2);
+            //     }
+            // }
         }
 
         // Hamburger

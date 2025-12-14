@@ -109,14 +109,6 @@ nav .boxNav .rightSide a:hover {
 nav .boxNav .rightSide a:active {
   transform: translateY(1px);
 }
-nav .boxNav .rightSide a[href="/login"] {
-  font-weight: 700;
-  background: rgba(15, 127, 240, 0.1);
-  color: #0f7ff0;
-}
-nav .boxNav .rightSide a[href="/login"]:hover {
-  background: rgba(15, 127, 240, 0.2);
-}
 nav .boxNav .hamburger {
   display: none;
   flex-direction: column;

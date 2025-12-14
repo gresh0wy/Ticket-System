@@ -32,10 +32,11 @@ header {
 
 .sectionForum {
     width: 1200px;
-    max-width: 95%;
+    max-width: 100%;
     margin: 0 auto;
     background-color: rgb(255, 255, 255);
     border-radius: 12px;
+    margin-bottom: 3em;
 
     p {
         margin: 1em 0;
@@ -43,6 +44,8 @@ header {
 
     form {
         height: 100%;
+        padding: 1em;
+
 
         // ------------------ IMIĘ I NAZWISKO + NUMER WEWNĘTRZNY + MIEJSCE ZGŁOSZENIA ------------------
         .userData {
@@ -384,18 +387,18 @@ header {
 
     .btn-submit {
         width: 100%;
-        max-width: 340px; // ładna szerokość, nie za szeroki
-        margin: 3rem auto 1rem; // większy odstęp od góry i dołu
+        max-width: 340px;
+        margin: 3rem auto 3rem;
         padding: 1.4rem 2.5rem;
         font-size: 1.7rem;
         font-weight: 600;
         color: #ffffff;
-        background: #4a90e2; // delikatny, szpitalny niebieski (nie jaskrawy)
+        background: #4a90e2;
         border: none;
         border-radius: 12px;
         cursor: pointer;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25); // subtelny cień w kolorze przycisku
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -403,7 +406,7 @@ header {
     }
 
     .btn-submit:hover {
-        background: #3a7bc8; // ciemniejszy odcień przy najechaniu
+        background: #3a7bc8;
         transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(74, 144, 226, 0.35);
     }

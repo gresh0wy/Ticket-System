@@ -37,45 +37,95 @@ body {
   flex-direction: column;
 }
 
+body {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
 .company-sections {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  width: 1200px;
-  height: 80vh;
+  min-height: auto;
+  width: 100%;
+  padding: 4rem 1rem;
 }
 .company-sections .company-section__text {
-  padding: 1em 1em;
+  text-align: start;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+  padding: 1em;
+  font-size: 1.2rem;
+  color: #444;
 }
 .company-sections .company-sections__container {
   display: flex;
-  justify-content: start;
-  align-items: center;
   flex-wrap: wrap;
-  width: 1200px;
+  justify-content: start;
+  gap: 2.5rem;
+  max-width: 1400px;
   margin: 0 auto;
-  height: 90vh;
 }
-.company-sections .company-sections__container a {
-  text-decoration: none;
-  color: black;
-  font-size: 2rem;
-}
-.company-sections .company-sections__container .company-sections__link {
+.company-sections .company-sections__link {
+  flex: 1 1 320px;
+  max-width: 330px;
+  height: 13em;
   display: flex;
-  align-items: end;
-  width: 30%;
-  height: 10em;
-  padding: 1em;
-  margin: 1em;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.2em;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.company-sections .company-sections__link span,
+.company-sections .company-sections__link p {
+  padding: 0.5em 0.8em;
   border-radius: 8px;
-  background-color: rgb(106, 128, 128);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
-.company-sections .company-sections__container .company-sections__link--it {
+.company-sections .company-sections__link span {
+  align-self: flex-start;
+  background-color: rgba(10, 41, 67, 0.35);
+}
+.company-sections .company-sections__link p {
+  margin: 0;
+  align-self: flex-start;
+  background-color: rgba(0, 0, 0, 0.45);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+.company-sections .company-sections__link--it {
   background-image: url(/img/serwery.jpg);
-  background-size: cover;
 }
-.company-sections .company-sections__container .company-sections__link--electric {
+.company-sections .company-sections__link--it span {
+  background-color: rgba(10, 41, 67, 0.2941176471);
+}
+.company-sections .company-sections__link--electric {
   background-image: url(/img/ev.jpg);
-  background-size: cover;
+}
+.company-sections .company-sections__link--electric span {
+  background-color: rgba(249, 203, 21, 0.2745098039);
+}
+.company-sections .company-sections__link--medical {
+  background-image: url(/img/kardiomonitor.png);
+}
+.company-sections .company-sections__link--medical span {
+  background-color: rgba(248, 113, 113, 0.2274509804);
+}
+.company-sections .company-sections__link--construction {
+  background-image: url(/img/constr.jpg);
+}
+.company-sections .company-sections__link--construction span {
+  background-color: rgba(222, 132, 53, 0.2666666667);
+}
+.company-sections .company-sections__link--cyber {
+  background-image: url(/img/cyber.jpg);
+}
+.company-sections .company-sections__link--cyber span {
+  background-color: rgba(52, 211, 153, 0.2745098039);
 }/*# sourceMappingURL=dashboard.css.map */
