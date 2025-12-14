@@ -1,0 +1,24 @@
+@use "colors" as *;
+@import "reset";
+
+
+.company-sections {
+    display: flex;
+
+    flex-direction: column;
+    height: 80vh;
+
+    .company-sections__container {
+        width: 1200px;
+        height: auto;
+
+        .company-sections__link {
+            width: 30px;
+            height: 30px;
+            background-color: tomato;
+
+            .ompany-sections__link--it {}
+
+        }
+    }
+}

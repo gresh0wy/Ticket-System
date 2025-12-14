@@ -26,7 +26,7 @@ app.use(express.json());
 
 // Endpoint POST do wysyłania zgłoszenia
 
-app.post('/tickets', async (req, res) => {
+app.post('/sendTickets', async (req, res) => {
     const {
         imie_nazwisko,
         numer_wewnetrzny,
@@ -70,13 +70,19 @@ app.post('/tickets', async (req, res) => {
         });
     } catch (err) {
         console.error('Błąd SQL:', err);
-        res.status(500).send(`Błąd podczas zapisywania zgłoszenia. ${err}`);
+        res.status(500).send(err);
+        // `Błąd podczas zapisywania zgłoszenia. ${err}`
     }
 });
 
 
 
 
+// routes
+
+app.use(require('./routes/mainRout'))
+app.use(require('./routes/dashboardRout'))
+app.use(require('./routes/errorRout'))
 
 
 
@@ -87,50 +93,6 @@ app.post('/tickets', async (req, res) => {
 
 
 
-
-app.get('/', (req, res) => {
-    res.render('pages/formTicket',
-        {
-            tittle: 'Zgłoś problem'
-        }
-    )
-})
-
-app.get('/login', (req, res) => {
-    res.render('pages/loginPage',
-        {
-            tittle: 'Strona logowania'
-        }
-    )
-})
-
-app.get('/test', (req, res) => {
-    res.render('pages/thankYou',
-        {
-            tittle: 'Dziękujemy za zgłoszenie',
-            ticketId: 1
-        }
-    )
-})
-
-
-app.use((req, res) => {
-    res.status(404).render('errors/404',
-        {
-            tittle: 'strona nie odnaleziona',
-            layout: 'layouts/errorLayouts'
-        }
-    )
-})
-
-app.use((req, res) => {
-    res.status(403).render('errors/403',
-        {
-            tittle: 'Brak dostępu',
-            layout: 'layouts/errorLayouts'
-        }
-    )
-})
 
 
 app.listen(port, () => {

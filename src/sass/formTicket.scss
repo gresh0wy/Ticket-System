@@ -8,6 +8,7 @@ body {
     color: var(--text);
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+
 }
 
 header {
@@ -33,7 +34,6 @@ header {
     width: 1200px;
     max-width: 95%;
     margin: 0 auto;
-    padding: 2em;
     background-color: rgb(255, 255, 255);
     border-radius: 12px;
 
@@ -72,6 +72,7 @@ header {
                     border-radius: 8px;
                     background-color: #fff;
                     transition: border 0.3s, box-shadow 0.3s;
+
 
                     &:focus {
                         outline: none;
@@ -353,6 +354,10 @@ header {
 
             // Responsywność – mobile
             @media (max-width: 768px) {
+                .sectionForum {
+                    padding: 0;
+                }
+
                 .toggle {
                     gap: 2rem;
                     flex-direction: column;
