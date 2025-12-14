@@ -1,0 +1,400 @@
+:root {
+  --bg: #f5f7f8;
+  --card: #ffffff;
+  --text: #111418;
+  --text-sec: #60758a;
+  --border: #e5e7eb;
+  --muted: #f0f2f5;
+  --accent: #007ECC;
+  --accent-2: #EC2F4B;
+  --border-width: 0.15em;
+}
+
+.dark {
+  --bg: #101922;
+  --card: #1a232e;
+  --text: #e8eaed;
+  --text-sec: #9aa0a6;
+  --border: #303940;
+  --muted: #1e2732;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 2rem;
+  height: 20vh;
+}
+header h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+header span {
+  color: var(--text-sec);
+  font-size: 1.6rem;
+}
+
+.sectionForum {
+  width: 1200px;
+  max-width: 95%;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+}
+.sectionForum p {
+  margin: 1em 0;
+}
+.sectionForum form {
+  height: 100%;
+}
+.sectionForum form .userData {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.sectionForum form .userData label {
+  flex: 1;
+  min-width: 280px;
+}
+.sectionForum form .userData label p {
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #333;
+}
+.sectionForum form .userData label input,
+.sectionForum form .userData label select {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.sectionForum form .userData label input:focus,
+.sectionForum form .userData label select:focus {
+  outline: none;
+  border-color: #0f7ff0;
+  box-shadow: 0 0 0 3px rgba(15, 127, 240, 0.15);
+}
+.sectionForum form .userData label input::-moz-placeholder, .sectionForum form .userData label select::-moz-placeholder {
+  color: var(--text-sec);
+}
+.sectionForum form .userData label input::placeholder,
+.sectionForum form .userData label select::placeholder {
+  color: var(--text-sec);
+}
+.sectionForum form .userData label input[type=number],
+.sectionForum form .userData label select[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+}
+.sectionForum form .userData label input[type=number]::-webkit-inner-spin-button, .sectionForum form .userData label input[type=number]::-webkit-outer-spin-button,
+.sectionForum form .userData label select[type=number]::-webkit-inner-spin-button,
+.sectionForum form .userData label select[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.sectionForum form .userData label:nth-child(3) {
+  flex: 1 1 100%;
+  min-width: 100%;
+  margin-top: -1rem;
+}
+@media (max-width: 768px) {
+  .sectionForum form .userData {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .sectionForum form .userData label {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+}
+.sectionForum form .boxTicket {
+  width: 100%;
+  margin-top: 2rem;
+}
+.sectionForum form .boxTicket label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #333;
+}
+.sectionForum form .boxTicket input,
+.sectionForum form .boxTicket textarea {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  transition: border 0.3s, box-shadow 0.3s;
+  resize: vertical;
+}
+.sectionForum form .boxTicket input:focus,
+.sectionForum form .boxTicket textarea:focus {
+  outline: none;
+  border-color: #0f7ff0;
+  box-shadow: 0 0 0 3px rgba(15, 127, 240, 0.15);
+}
+.sectionForum form .boxTicket input::-moz-placeholder, .sectionForum form .boxTicket textarea::-moz-placeholder {
+  color: var(--text-sec);
+}
+.sectionForum form .boxTicket input::placeholder,
+.sectionForum form .boxTicket textarea::placeholder {
+  color: var(--text-sec);
+}
+.sectionForum form .boxTicket textarea {
+  min-height: 100px;
+}
+.sectionForum form .boxTicket input[type=file] {
+  padding: 0.8rem;
+}
+.sectionForum form .ticketDestination {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.sectionForum form .ticketDestination .boxDepartament,
+.sectionForum form .ticketDestination .boxCategory {
+  flex: 1;
+  min-width: 280px;
+}
+.sectionForum form .ticketDestination .boxDepartament p,
+.sectionForum form .ticketDestination .boxCategory p {
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #333;
+}
+.sectionForum form .ticketDestination .boxDepartament .select-wrapper,
+.sectionForum form .ticketDestination .boxCategory .select-wrapper {
+  position: relative;
+}
+.sectionForum form .ticketDestination .boxDepartament .select-wrapper select,
+.sectionForum form .ticketDestination .boxCategory .select-wrapper select {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.sectionForum form .ticketDestination .boxDepartament .select-wrapper select:focus,
+.sectionForum form .ticketDestination .boxCategory .select-wrapper select:focus {
+  outline: none;
+  border-color: #0f7ff0;
+  box-shadow: 0 0 0 3px rgba(15, 127, 240, 0.15);
+}
+.sectionForum form .ticketDestination .boxDepartament .select-wrapper select::-ms-expand,
+.sectionForum form .ticketDestination .boxCategory .select-wrapper select::-ms-expand {
+  display: none;
+}
+.sectionForum form .ticketDestination .boxDepartament .select-wrapper::after,
+.sectionForum form .ticketDestination .boxCategory .select-wrapper::after {
+  content: "expand_more";
+  font-family: "Material Symbols Outlined";
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.4rem;
+  color: var(--text-sec);
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .sectionForum form .ticketDestination {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .sectionForum form .ticketDestination .boxDepartament,
+  .sectionForum form .ticketDestination .boxCategory {
+    min-width: 100%;
+  }
+}
+.sectionForum form .CategoryPriority {
+  width: 100%;
+  margin: 5rem 0;
+  display: flex;
+  justify-content: center;
+}
+.sectionForum form .CategoryPriority .toggle {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+.sectionForum form .CategoryPriority .toggle .toggle-wrapper {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sectionForum form .CategoryPriority .toggle .toggle-wrapper p {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+.sectionForum form .CategoryPriority .toggle-group {
+  position: relative;
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 0.3em;
+  width: 340px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.sectionForum form .CategoryPriority .toggle-group input {
+  display: none;
+}
+.sectionForum form .CategoryPriority .toggle-group .toggle-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1rem;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+.sectionForum form .CategoryPriority .toggle-group .toggle-label:hover {
+  color: #000;
+}
+.sectionForum form .CategoryPriority .toggle-group input:checked + .toggle-label {
+  color: #000;
+  font-weight: 700;
+}
+.sectionForum form .CategoryPriority .toggle-group input:checked + .toggle-label:nth-of-type(1) {
+  color: #006400;
+}
+.sectionForum form .CategoryPriority .toggle-group input:checked + .toggle-label:nth-of-type(2) {
+  color: #d6a617;
+}
+.sectionForum form .CategoryPriority .toggle-group input:checked + .toggle-label:nth-of-type(3) {
+  color: #8b0000;
+}
+.sectionForum form .CategoryPriority .toggle-group .slider {
+  position: absolute;
+  top: 0.3em;
+  bottom: 0.3em;
+  left: 0.3em;
+  width: calc((100% - 0.6em) / 3);
+  background: #fff;
+  border-radius: calc(1rem - 0.3em);
+  z-index: 1;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.sectionForum form .CategoryPriority .toggle-group:has(#priority-low:checked) .slider, .sectionForum form .CategoryPriority .toggle-group:has(#freq-once:checked) .slider {
+  transform: translateX(0%);
+}
+.sectionForum form .CategoryPriority .toggle-group:has(#priority-medium:checked) .slider, .sectionForum form .CategoryPriority .toggle-group:has(#freq-rare:checked) .slider {
+  transform: translateX(100%);
+}
+.sectionForum form .CategoryPriority .toggle-group:has(#priority-high:checked) .slider, .sectionForum form .CategoryPriority .toggle-group:has(#freq-frequent:checked) .slider {
+  transform: translateX(200%);
+}
+@media (max-width: 768px) {
+  .sectionForum form .CategoryPriority .sectionForum {
+    padding: 0;
+  }
+  .sectionForum form .CategoryPriority .toggle {
+    gap: 2rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sectionForum form .CategoryPriority .toggle .toggle-wrapper {
+    min-width: unset;
+    width: 100%;
+  }
+  .sectionForum form .CategoryPriority .toggle .toggle-group {
+    width: 100%;
+    padding: 0.25em;
+  }
+  .sectionForum form .CategoryPriority .toggle .toggle-group .toggle-label {
+    padding: 0.8rem 0.6rem;
+    font-size: 1.3rem;
+  }
+}
+.sectionForum .btn-submit {
+  width: 100%;
+  max-width: 340px;
+  margin: 3rem auto 1rem;
+  padding: 1.4rem 2.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: #4a90e2;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+.sectionForum .btn-submit:hover {
+  background: #3a7bc8;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.35);
+}
+.sectionForum .btn-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
+}/*# sourceMappingURL=formTicket.css.map */

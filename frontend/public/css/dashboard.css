@@ -1,0 +1,81 @@
+:root {
+  --bg: #f5f7f8;
+  --card: #ffffff;
+  --text: #111418;
+  --text-sec: #60758a;
+  --border: #e5e7eb;
+  --muted: #f0f2f5;
+  --accent: #007ECC;
+  --accent-2: #EC2F4B;
+  --border-width: 0.15em;
+}
+
+.dark {
+  --bg: #101922;
+  --card: #1a232e;
+  --text: #e8eaed;
+  --text-sec: #9aa0a6;
+  --border: #303940;
+  --muted: #1e2732;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-sections {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 1200px;
+  height: 80vh;
+}
+.company-sections .company-section__text {
+  padding: 1em 1em;
+}
+.company-sections .company-sections__container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: 0 auto;
+  height: 90vh;
+}
+.company-sections .company-sections__container a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+.company-sections .company-sections__container .company-sections__link {
+  display: flex;
+  align-items: end;
+  width: 30%;
+  height: 10em;
+  padding: 1em;
+  margin: 1em;
+  border-radius: 8px;
+  background-color: rgb(106, 128, 128);
+}
+.company-sections .company-sections__container .company-sections__link--it {
+  background-image: url(/img/serwery.jpg);
+  background-size: cover;
+}
+.company-sections .company-sections__container .company-sections__link--electric {
+  background-image: url(/img/ev.jpg);
+  background-size: cover;
+}/*# sourceMappingURL=dashboard.css.map */
