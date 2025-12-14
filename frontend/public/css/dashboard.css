@@ -39,6 +39,7 @@ body {
 
 body {
   background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+  font-family: "Inter", sans-serif;
 }
 
 .company-sections {
@@ -128,4 +129,48 @@ body {
 }
 .company-sections .company-sections__link--cyber span {
   background-color: rgba(52, 211, 153, 0.2745098039);
+}
+
+.dashboard-section {
+  width: 1400px;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+.dashboard-section .dashboard-section__status {
+  display: flex;
+  justify-content: center;
+  width: 1400px;
+  gap: 1em;
+}
+.dashboard-section .dashboard-section__status .dashboard-section__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 25%;
+  min-height: 10em;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.dashboard-section .dashboard-section__status .dashboard-section__box .dashboard-section__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.dashboard-section .dashboard-section__status .dashboard-section__box .dashboard-section__top p {
+  margin: 0;
+  font-weight: 600;
+  color: #333;
+}
+.dashboard-section .dashboard-section__status .dashboard-section__box .dashboard-section__top span svg {
+  fill: #a3a3a3;
+}
+.dashboard-section .dashboard-section__status .dashboard-section__box .dashboard-section__bottom span {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
 }/*# sourceMappingURL=dashboard.css.map */
