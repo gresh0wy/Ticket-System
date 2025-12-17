@@ -5,7 +5,7 @@ const router = new express.Router()
 router.get('/', (req, res) => {
     res.render('pages/formTicket',
         {
-            tittle: 'Zgłoś problem'
+            title: 'Zgłoś problem'
         }
     )
 })
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('pages/loginPage',
         {
-            tittle: 'Strona logowania'
+            title: 'Strona logowania'
         }
     )
 })
@@ -21,7 +21,7 @@ router.get('/login', (req, res) => {
 router.get('/test', (req, res) => {
     res.render('pages/thankYou',
         {
-            tittle: 'Dziękujemy za zgłoszenie',
+            title: 'Dziękujemy za zgłoszenie',
             ticketId: 1
         }
     )

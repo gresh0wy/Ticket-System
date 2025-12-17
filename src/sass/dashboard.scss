@@ -51,7 +51,7 @@ body {
         transition: transform 0.35s ease, box-shadow 0.35s ease;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 
-        // wspólne style dla ikony i tekstu (glassmorphism)
+
         span,
         p {
             padding: 0.5em 0.8em;
@@ -62,7 +62,7 @@ body {
 
         span {
             align-self: flex-start;
-            background-color: rgba(10, 41, 67, 0.35); // fallback, zostanie nadpisany
+            background-color: rgba(10, 41, 67, 0.35);
         }
 
         p {
@@ -79,6 +79,7 @@ body {
 
             span {
                 background-color: #0a29434b;
+                border: 1px solid #0a29434b;
             }
         }
 
@@ -87,6 +88,7 @@ body {
 
             span {
                 background-color: #f9cb1546;
+                border: 1px solid #f9cb1546;
             }
         }
 
@@ -95,6 +97,7 @@ body {
 
             span {
                 background-color: #f871713a;
+                border: 1px solid #f871713a;
             }
         }
 
@@ -103,6 +106,7 @@ body {
 
             span {
                 background-color: #de843544;
+                border: 1px solid #de843544;
             }
         }
 
@@ -111,61 +115,7 @@ body {
 
             span {
                 background-color: #34d39946;
-            }
-        }
-    }
-}
-
-.dashboard-section {
-    width: 1400px;
-    height: 100vh;
-    margin: 0 auto;
-    padding: 2em 0; // opcjonalnie, dla odstępu
-
-    .dashboard-section__status {
-        display: flex;
-        justify-content: center;
-        width: 1400px;
-        gap: 1em;
-
-        .dashboard-section__box {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            width: 25%;
-            min-height: 10em;
-            padding: 1em;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-
-            .dashboard-section__top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-
-                p {
-                    margin: 0;
-                    font-weight: 600;
-                    color: #333;
-                }
-
-                span svg {
-                    fill: #a3a3a3; // zmieniamy z #e3e3e3 na coś ciemniejszego, bo jasny szary na białym tle jest prawie niewidoczny
-                }
-
-
-            }
-
-            .dashboard-section__bottom {
-                span {
-                    font-size: 2.5rem;
-                    font-weight: bold;
-                    color: #333;
-
-                }
+                border: 1px solid #34d39946;
             }
         }
     }

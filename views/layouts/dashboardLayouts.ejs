@@ -1,6 +1,82 @@
-<%- include('../partials/dashboardHeader'); -%>
-    <!-- <%- include('../partials/nav'); -%> -->
+<!DOCTYPE html>
+<html lang="pl">
 
-    <%- body -%>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%- title -%></title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
 
-        <%- include('../partials/footer'); -%>
+    <link rel="stylesheet" href="/css/dashboardStyle.css">
+
+
+</head>
+
+<body>
+    <div class="dashboard">
+        <nav class="dashboard__nav">
+
+            <div class="dashboard__nav-left">
+                <h2 class="dashboard__nav-title"> <%- navItems -%> </h2>
+
+                <div class="dashboard__search">
+                    <span class="dashboard__search-icon material-symbols-outlined">search</span>
+                    <input type="text" id="dashboard-search" placeholder="Wyszukaj zgłoszenia..." autocomplete="off" />
+                </div>
+            </div>
+
+
+            <div class="dashboard__nav-right">
+                <button class="dashboard__notifications" aria-label="Powiadomienia">
+                    <span class="material-symbols-outlined">notifications</span>
+                    <span class="dashboard__notifications-badge">3</span>
+                </button>
+
+                <div class="dashboard__user">
+                    <div class="dashboard__user-info">
+                        <p class="dashboard__user-greeting">
+                            Witaj, <span class="dashboard__user-name">Kuba</span>
+                        </p>
+                        <p class="dashboard__user-role">Administrator</p>
+                    </div>
+                    <div class="dashboard__user-avatar">
+                        <img src="/avatar.jpg" alt="Avatar Kuby" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <aside class="dashboard__aside">
+            <div class="dashboard__logo">
+                <div class="dashboard__logo-icon">
+                    <span class="material-symbols-outlined">local_hospital</span>
+                </div>
+                <a href="/" class="dashboard__logo-text">MedTicket</a>
+            </div>
+
+            <div class="dashboard__buttons">
+                <div class="dashboard__top">
+                    <a class="dashboard__top-button dashboard__top-button1" href="">Pulpit</a>
+                    <a class="dashboard__top-button dashboard__top-button2" href="">Wszystkie zgłoszenia</a>
+                    <a class="dashboard__top-button dashboard__top-button3" href="">Mój profil</a>
+                    <a class="dashboard__top-button dashboard__top-button4" href="">Statystyki</a>
+                    <a class="dashboard__top-button dashboard__top-button5" href="">Ustawienia</a>
+                </div>
+
+                <div class="dashboard__bottom">
+                    <div class="dashboard__bottom-user-data">
+                        <p>dane usera</p>
+                    </div>
+                    <div class="dashboard__bottom-button dashboard__bottom-button1">Wyloguj</div>
+                </div>
+            </div>
+        </aside>
+        <main class="dashboard__main">
+            <%- body -%>
+        </main>
+
+    </div>
+</body>
+
+</html>

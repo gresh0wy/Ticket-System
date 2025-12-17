@@ -65,7 +65,7 @@ app.post('/sendTickets', async (req, res) => {
 
         // result.insertId to ID nowo wstawionego zgłoszenia
         res.render('pages/thankYou', {
-            tittle: 'Dziękujemy za zgłoszenie',
+            title: 'Dziękujemy za zgłoszenie',
             ticketId: result.insertId
         });
     } catch (err) {
@@ -74,6 +74,20 @@ app.post('/sendTickets', async (req, res) => {
         // `Błąd podczas zapisywania zgłoszenia. ${err}`
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

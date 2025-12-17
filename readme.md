@@ -53,3 +53,50 @@ System pozwala na wybór miejsca zdarzenia, działu docelowego, priorytetu oraz 
 
 # instrukcje uruchomienia serwera (do uzupełnienia)
 - npm run dev
+
+## 📸 Podgląd aplikacji
+
+---
+
+### Strona główna
+<p align="center">
+  <img src="imgProject/homePage.png" alt="Strona główna" width="800">
+</p>
+
+---
+
+### Ekran z podsumowanie zgłoszenia
+<p align="center">
+  <img src="imgProject/thankYou.png" alt="Ekran podziękowania" width="700">
+</p>
+
+---
+
+### Dashboard – widok główny
+<p align="center">
+  <img src="imgProject/dashboard.png" alt="Dashboard" width="800">
+</p>
+
+---
+
+### Dashboard – szczegóły
+<p align="center">
+  <img src="imgProject/dashboard2.png" alt="Dashboard szczegóły" width="800">
+</p>
+
+---
+
+### Logowanie
+<p align="center">
+  <img src="imgProject/loginPage.png" alt="Strona logowania" width="600">
+</p>
+
+---
+
+### Strona błędu 404
+<p align="center">
+  <img src="imgProject/error404.png" alt="Błąd 404" width="600">
+</p>
+
+
+

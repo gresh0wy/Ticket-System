@@ -6,4 +6,5 @@ footer {
   background-color: rgb(246, 246, 246);
   height: 100px;
   width: 100%;
+  z-index: 999;
 }/*# sourceMappingURL=footerAndHeader.css.map */

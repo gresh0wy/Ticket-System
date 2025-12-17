@@ -4,7 +4,7 @@ const router = new express.Router()
 router.use((req, res) => {
     res.status(404).render('errors/404',
         {
-            tittle: 'strona nie odnaleziona',
+            title: 'strona nie odnaleziona',
             layout: 'layouts/errorLayouts'
         }
     )
@@ -13,7 +13,7 @@ router.use((req, res) => {
 router.use((req, res) => {
     res.status(403).render('errors/403',
         {
-            tittle: 'Brak dostępu',
+            title: 'Brak dostępu',
             layout: 'layouts/errorLayouts'
         }
     )
