@@ -1,5 +1,5 @@
 @use "colors" as *;
-@import "reset";
+@use "./reset";
 
 body {
     margin: 0;
@@ -34,7 +34,7 @@ header {
     width: 1200px;
     max-width: 100%;
     margin: 0 auto;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--bg);
     border-radius: 12px;
     margin-bottom: 3em;
 
@@ -46,6 +46,13 @@ header {
         height: 100%;
         padding: 1em;
 
+        p {
+            // style dla nazw/selectów 
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: var(--text);
+        }
 
         // ------------------ IMIĘ I NAZWISKO + NUMER WEWNĘTRZNY + MIEJSCE ZGŁOSZENIA ------------------
         .userData {
@@ -58,13 +65,6 @@ header {
             label {
                 flex: 1;
                 min-width: 280px;
-
-                p {
-                    margin-bottom: 0.8rem;
-                    font-weight: 600;
-                    font-size: 1.6rem;
-                    color: #333;
-                }
 
                 input,
                 select {
@@ -145,6 +145,7 @@ header {
                 transition: border 0.3s, box-shadow 0.3s;
                 resize: vertical;
 
+
                 &:focus {
                     outline: none;
                     border-color: $primary;
@@ -179,12 +180,7 @@ header {
                 flex: 1;
                 min-width: 280px;
 
-                p {
-                    margin-bottom: 0.8rem;
-                    font-weight: 600;
-                    font-size: 1.6rem;
-                    color: #333;
-                }
+
 
                 .select-wrapper {
                     position: relative;
@@ -234,6 +230,8 @@ header {
                     min-width: 100%;
                 }
             }
+
+
         }
 
         // suwaki 
@@ -259,13 +257,7 @@ header {
                     flex-direction: column;
                     align-items: center;
 
-                    p {
-                        margin: 0 0 0.8rem 0;
-                        font-size: 1.6rem;
-                        font-weight: 600;
-                        color: #333;
-                        text-align: center;
-                    }
+
                 }
             }
 
@@ -308,22 +300,22 @@ header {
                     font-weight: 700;
                 }
 
-                // Kolory dla wybranej opcji
+
                 input:checked+.toggle-label:nth-of-type(1) {
                     color: #006400;
                 }
 
-                // zielony
+
                 input:checked+.toggle-label:nth-of-type(2) {
                     color: #d6a617;
                 }
 
-                // pomarańczowy
+
                 input:checked+.toggle-label:nth-of-type(3) {
                     color: #8b0000;
                 }
 
-                // czerwony
+
 
                 .slider {
                     position: absolute;
@@ -355,7 +347,7 @@ header {
                 }
             }
 
-            // Responsywność – mobile
+
             @media (max-width: 768px) {
                 .sectionForum {
                     padding: 0;
@@ -377,7 +369,7 @@ header {
 
                         .toggle-label {
                             padding: 0.8rem 0.6rem;
-                            font-size: 1.3rem; // trochę większy tekst na mobile dla lepszej czytelności
+                            font-size: 1.3rem;
                         }
                     }
                 }
@@ -407,12 +399,14 @@ header {
 
     .btn-submit:hover {
         background: #3a7bc8;
-        transform: translateY(-3px);
         box-shadow: 0 8px 20px rgba(74, 144, 226, 0.35);
     }
 
     .btn-submit:active {
-        transform: translateY(0);
         box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
+    }
+
+    .errorMsg {
+        border: 1px solid red;
     }
 }

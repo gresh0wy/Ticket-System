@@ -1,5 +1,5 @@
 @use "colors" as *;
-@import "reset";
+@use "./reset" as *;
 
 body {
     background: linear-gradient(to bottom, #f8f9fa, #e9ecef);

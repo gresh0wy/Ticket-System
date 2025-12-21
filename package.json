@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app/app.js",
-    "sass": "sass src/sass/main.scss public/css/main.css --style=compressed"
+    "sass": "sass src/sass/main.scss frontend/public/css/main.css --style=compressed"
   },
   "repository": {
     "type": "git",

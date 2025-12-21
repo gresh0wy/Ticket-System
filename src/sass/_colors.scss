@@ -2,13 +2,13 @@
 // PALETA KOLORÓW
 // ---------------------------------------------
 
-// Podstawowe kolory marki
+// Podstawowe kolory 
 $primary: #0f7ff0;
 $accent: #007ECC;
 $accent-2: #EC2F4B;
 $destructive: #d32f2f;
 
-// Tryb jasny (light)
+// Tryb jasny 
 $bg-light: #f5f7f8;
 $card-light: #ffffff;
 $text-primary-light: #111418;
@@ -16,10 +16,34 @@ $text-secondary-light: #60758a;
 $border-light: #e5e7eb;
 $muted-light: #f0f2f5;
 
-// Tryb ciemny (dark)
+// Tryb ciemny 
 $bg-dark: #101922;
 $card-dark: #1a232e;
-$text-primary-dark: #e8eaed; // jaśniejszy tekst w dark mode
+$text-primary-dark: #e8eaed;
 $text-secondary-dark: #9aa0a6;
 $border-dark: #303940;
 $muted-dark: #1e2732;
+
+
+
+:root {
+    --bg: #{$bg-light};
+    --card: #{$card-light};
+    --text: #{$text-primary-light};
+    --text-sec: #{$text-secondary-light};
+    --border: #{$border-light};
+    --muted: #{$muted-light};
+    --accent: #{$accent};
+    --accent-2: #{$accent-2};
+    --border-width: 0.15em;
+}
+
+
+.dark {
+    --bg: #{$bg-dark};
+    --card: #{$card-dark};
+    --text: #{$text-primary-dark};
+    --text-sec: #{$text-secondary-dark};
+    --border: #{$border-dark};
+    --muted: #{$muted-dark};
+}

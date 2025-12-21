@@ -54,6 +54,15 @@ System pozwala na wybór miejsca zdarzenia, działu docelowego, priorytetu oraz 
 # instrukcje uruchomienia serwera (do uzupełnienia)
 - npm run dev
 
+
+# Budowa pliku .env
+- MARIADB_ROOT_PASSWORD="pass"
+- MARIADB_DATABASE_NAME="dbName"
+- MARIADB_USER="username"
+- MARIADB_HOST=localhost
+- MARIADB_PORT=port
+
+
 ## 📸 Podgląd aplikacji
 
 ---

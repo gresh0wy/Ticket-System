@@ -14,16 +14,16 @@
             <div class="userData">
                 <label for="">
                     <p>Imie i Nazwisko</p>
-                    <input type="text" name="imie_nazwisko">
+                    <input class="userNameTicket errorMsg" type="text" name="imie_nazwisko">
                 </label>
                 <label for="">
                     <p>Numer wewnętrzny</p>
-                    <input type="number" name="numer_wewnetrzny">
+                    <input class="nrContactTicket" type="number" name="numer_wewnetrzny">
                 </label>
 
-                <label for="">
+                <label for="placeIncident">
                     <p>Miejsce zdarzenia</p>
-                    <select name="miejsce_zdarzenia" name="department" id="department">
+                    <select class="placeIncident" name="miejsce_zdarzenia" id="placeIncident">
                         <option disabled selected value="">Wybierz miejsce</option>
                         <option value="oddzial_okulistyki">Oddział Okulistyki</option>
                         <option value="oddzial_chirurgii">Oddział Chirurgii Ogólnej</option>
@@ -39,7 +39,7 @@
                 <div class="boxDepartament">
                     <p>Dział docelowy</p>
                     <div class="select-wrapper">
-                        <select name="dzial_docelowy" id="">
+                        <select class="targetDepartment" name="dzial_docelowy" id="targetDepartment">
                             <option disabled="" selected="" value="">Wybierz dział</option>
                             <option value="it">Dział informatyki</option>
                             <option value="medical_equipment">Aparatura medyczna</option>
@@ -53,7 +53,7 @@
                 <div class="boxCategory">
                     <p>Wybierz kategorie</p>
                     <div class="select-wrapper">
-                        <select name="kategoria_zgloszenia" id="">
+                        <select class="ticketCategory" name="kategoria_zgloszenia" id="ticketCategory">
                             <option disabled="" selected="" value="">Wybierz kategorię</option>
                             <option value="it">Wsparcie IT (Komputery, Sieć)</option>
                             <option value="medical">Sprzęt Medyczny</option>
@@ -66,14 +66,17 @@
             </div>
 
             <div class="boxTicket">
-                <label for="">
+                <label for="ticketSubject">
                     <p>Temat zgłoszenia</p>
-                    <input placeholder="np. Awaria drukarki na recepcji SOR" name="temat_zgloszenia" type="text">
+                    <input class="ticketSubject" placeholder="np. Awaria drukarki na recepcji SOR" name="ticketSubject"
+                        type="text" maxlength="100">
+                    <p> <span class="ticketMaxSub">0</span> / 100</p>
                 </label>
 
-                <label for="">
+                <label for="ticketDesc">
                     <p>Opis zgłoszenia</p>
-                    <textarea name="opis_zgloszenia" id=""></textarea>
+                    <textarea class="ticketDesc" name="opis_zgloszenia" id="ticketDesc" maxlength="500"></textarea>
+                    <span class="ticketMaxDesc">0</span> / 500
                 </label>
             </div>
 
