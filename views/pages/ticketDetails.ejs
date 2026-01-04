@@ -1,0 +1,26 @@
+<h1>Zgłoszenie #<%= ticket.id %></h1>
+
+<hr>
+
+<p><strong>Imię i nazwisko:</strong> <%= ticket.imie_nazwisko %></p>
+<p><strong>Numer wewnętrzny:</strong> <%= ticket.numer_wewnetrzny %></p>
+<p><strong>Miejsce zdarzenia:</strong> <%= ticket.miejsce_zdarzenia %></p>
+<p><strong>Dział docelowy:</strong> <%= ticket.dzial_docelowy %></p>
+<p><strong>Kategoria:</strong> <%= ticket.kategoria_zgloszenia %></p>
+<p><strong>Temat:</strong> <%= ticket.temat_zgloszenia %></p>
+
+<hr>
+
+<p><strong>Opis zgłoszenia:</strong></p>
+<p><%= ticket.opis_zgloszenia %></p>
+
+<hr>
+
+<p><strong>Priorytet:</strong> <%= ticket.priorytet_zgloszenia %></p>
+<p><strong>Powtarzalność:</strong> <%= ticket.powtarzalnosc %></p>
+<p><strong>Utworzone przez:</strong> <%= ticket.utworzone_przez %></p>
+
+<% if (ticket.created_at) { %>
+    <p><strong>Data utworzenia:</strong> <%= ticket.created_at %></p>
+<% } %>
+    <button onclick="history.back()">Go Back</button>
