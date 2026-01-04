@@ -1,0 +1,128 @@
+@use "colors" as *;
+@use "./reset" as *;
+
+.dashboard__main {
+    width: 100%;
+    padding: 1.5rem;
+    box-sizing: border-box;
+
+    .tickets {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        background-color: transparent;
+
+        table {
+            width: 100%;
+            min-width: 1400px; // zabezpieczenie przed nachodzeniem kolumn
+            table-layout: fixed;
+            border-collapse: collapse;
+            font-size: 1.6rem;
+
+            thead {
+                background-color: #f8f9fa;
+
+                th {
+                    padding: 1rem;
+                    text-align: left;
+                    white-space: nowrap;
+                    font-weight: 600;
+                }
+            }
+
+            tbody {
+                tr {
+                    vertical-align: top;
+                    border-bottom: 1px solid #e0e0e0;
+
+                    &:hover {
+                        background-color: #f5f5f5;
+                    }
+
+                    td {
+                        padding: 1rem;
+                        word-wrap: break-word;
+                        word-break: break-word;
+                        line-height: 1.4;
+                    }
+                }
+            }
+
+            /* ===== Szerokości kolumn ===== */
+            th:nth-child(1),
+            td:nth-child(1) { width: 4%; }   // ID
+
+            th:nth-child(2),
+            td:nth-child(2) { width: 10%; }  // Zgłaszający
+
+            th:nth-child(3),
+            td:nth-child(3) { width: 7%; }   // Numer wewnętrzny
+
+            th:nth-child(4),
+            td:nth-child(4) { width: 10%; }  // Miejsce
+
+            th:nth-child(5),
+            td:nth-child(5) { width: 12%; }  // Temat
+
+            th:nth-child(6),
+            td:nth-child(6) { width: 25%; }  // Opis (najszersza)
+
+            th:nth-child(7),
+            td:nth-child(7) { width: 7%; }   // Priorytet
+
+            th:nth-child(8),
+            td:nth-child(8) { width: 10%; }  // Data
+
+            th:nth-child(9),
+            td:nth-child(9) { width: 8%; }   // Akcje
+        }
+
+        /* ===== Badge ===== */
+        .badge {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            padding: 0.4em 0.6em;
+        }
+
+        /* ===== Button ===== */
+        .btn {
+            white-space: nowrap;
+        }
+    }
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1200px) {
+    .dashboard__main {
+        .tickets {
+            table {
+                min-width: 1200px;
+            }
+
+            th:nth-child(3),
+            td:nth-child(3) {
+                display: none; // Numer wewnętrzny
+            }
+        }
+    }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .dashboard__main {
+        padding: 1rem;
+
+        .tickets {
+            table {
+                min-width: 1000px;
+            }
+
+            th:nth-child(4),
+            td:nth-child(4),
+            th:nth-child(8),
+            td:nth-child(8) {
+                display: none; // Miejsce + Data
+            }
+        }
+    }
+}

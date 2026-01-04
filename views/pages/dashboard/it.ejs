@@ -1,8 +1,51 @@
 <main class="dashboard__main">
     <section class="status">
-        <div class="status__newTickets"></div>
+        <div class="status__newTickets"> <h2>nowe zgoszenia:</h2> <%- countNewTickets -%></div>
         <div class="status__inProgres"></div>
         <div class="status__critic"></div>
         <div class="status__done"></div>
     </section>
+<div class="tickets">
+
+
+<% if (tickets.length > 0) { %>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Zgłaszający</th>
+                <th>Miejsce</th>
+                <th>Temat</th>
+              
+                <th>Priorytet</th>
+                <th>Data utworzenia</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% tickets.forEach(ticket => { %>
+                <tr>
+                    <td><%= ticket.id %></td>
+                    <td><%= ticket.imie_nazwisko %></td>
+                    <td><%= ticket.miejsce_zdarzenia %></td>
+                    <td><%= ticket.temat_zgloszenia %></td>
+                    <td>
+                        <span class="badge bg-<%= ticket.priorytet_zgloszenia === 'high' ? 'danger' : ticket.priorytet_zgloszenia === 'medium' ? 'warning' : 'secondary' %>">
+                            <%= ticket.priorytet_zgloszenia %>
+                        </span>
+                    </td>
+                    <td><%= new Date(ticket.data_utworzenia).toLocaleString('pl-PL') %></td>
+                    <td>
+                        <a href="/ticket/<%= ticket.id %>" class="btn btn-sm btn-primary">Szczegóły</a>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <div class="alert alert-info">
+        <strong>Brak nowych zgłoszeń</strong> – wszystko działa sprawnie! 👍
+    </div>
+<% } %>
+</div>
 </main>

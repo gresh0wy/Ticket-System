@@ -8,13 +8,33 @@ router.get('/dashboard', (req, res) => {
     });
 });
 
-router.get('/dashboard/it', (req, res) => {
-    res.render('pages/dashboard/it', {
-        title: 'Dział IT',
-        navItems: '',
-        layout: 'layouts/dashboardLayouts'
-    });
+
+const db = require('../database/dbConfig'); 
+
+
+router.get('/dashboard/it', async (req, res) => {
+  const tickets = await db.query(
+    'SELECT * FROM tickets WHERE dzial_docelowy = ? AND status_zgloszenia = ? ORDER BY data_utworzenia DESC',
+    ['it', 'new']
+  );
+
+  const countRows = await db.query(
+    'SELECT COUNT(*) AS count FROM tickets WHERE status_zgloszenia = ?',
+    ['new']
+  );
+
+  const countNewTickets = countRows[0].count;
+
+  res.render('pages/dashboard/it', {
+    title: 'Dział IT - Nowe zgłoszenia',
+    navItems: '',
+    layout: 'layouts/dashboardLayouts',
+    tickets,
+    countNewTickets
+  });
 });
+
+
 
 router.get('/dashboard/elektryczny', (req, res) => {
     res.render('pages/dashboard/electrical', {
