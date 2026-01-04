@@ -18,7 +18,7 @@ System pozwala na wybór miejsca zdarzenia, działu docelowego, priorytetu oraz 
 ## Road Map
 
 ### Etap 0 – Struktura projektu
-- Poprawienie i uporządkowanie struktury plików w folderze `app`
+- ~~Poprawienie i uporządkowanie struktury plików w folderze `app` ~~
 
 ### Etap 1 – Walidacja formularza
 - Dodanie pełnej walidacji po stronie klienta (JavaScript) do formularza zgłoszeniowego  
@@ -28,7 +28,7 @@ System pozwala na wybór miejsca zdarzenia, działu docelowego, priorytetu oraz 
 - Poprawne drukwanie oraz kopiowanie numeru ID zgłoszenia
 
 ### Etap 3 – Panel wyboru działów
-- Dodanie dedykowanej strony z wyborem działów (IT, Elektrycy, Budowlany, Aparatura medyczna, Cyberbezpieczeństwo itp.)
+- ~~ Dodanie dedykowanej strony z wyborem działów (IT, Elektrycy, Budowlany, Aparatura medyczna, Cyberbezpieczeństwo itp.) ~~
 
 ### Etap 4 – Panel zgłoszeń
 - Strona listy wszystkich zgłoszeń
