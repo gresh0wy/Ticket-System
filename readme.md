@@ -109,3 +109,14 @@ System pozwala na wybór miejsca zdarzenia, działu docelowego, priorytetu oraz 
 
 
 
+
+
+> **Informacja dotycząca bezpieczeństwa**
+>
+> Ze względów bezpieczeństwa w wersji projektu udostępnionej na GitHubie **nie został zaimplementowany system logowania ani inne funkcjonalności**, które mogłyby stanowić potencjalne zagrożenie dla bezpieczeństwa wewnętrznych danych.
+>
+> Pełna wersja aplikacji, zawierająca mechanizmy **uwierzytelniania**, **autoryzacji** oraz dodatkowe zabezpieczenia, jest przeznaczona wyłącznie do użytku wewnętrznego w środowisku, w którym system zostanie docelowo wdrożony.
+>
+> Repozytorium publiczne prezentuje jedynie **część funkcjonalną i techniczną projektu** w celach demonstracyjnych oraz edukacyjnych.
+>
+> **W celu uzyskania dostępu do pełnej wersji systemu zapraszam do kontaktu.**
