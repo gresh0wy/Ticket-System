@@ -63,7 +63,7 @@ System pozwala na wybór miejsca zdarzenia, działu docelowego, priorytetu oraz 
 - MARIADB_PORT=port
 
 
-## 📸 Podgląd aplikacji
+## Podgląd aplikacji
 
 ---
 

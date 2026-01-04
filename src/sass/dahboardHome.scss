@@ -91,38 +91,40 @@
     }
 }
 
-/* ===== TABLET ===== */
-@media (max-width: 1200px) {
-    .dashboard__main {
-        .tickets {
-            table {
-                min-width: 1200px;
-            }
+.dashboard__main{
+    .status{
 
-            th:nth-child(3),
-            td:nth-child(3) {
-                display: none; // Numer wewnętrzny
-            }
+        width: 100wv;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span, p{
+            font-size: 2rem;
         }
-    }
+span{
+    margin-left: .5em;
+}
+    } 
+    
+.statusItem{
+            display: flex;
+            justify-content:space-around;
+            width: auto;
+            height: auto;
+           padding: 1em;
+           margin: 1em;
+           background-color: #e9ecef;
+           border-radius: .7em;
+           text-align: center;
+           
+        }  
 }
 
-/* ===== MOBILE ===== */
-@media (max-width: 768px) {
-    .dashboard__main {
-        padding: 1rem;
 
-        .tickets {
-            table {
-                min-width: 1000px;
-            }
 
-            th:nth-child(4),
-            td:nth-child(4),
-            th:nth-child(8),
-            td:nth-child(8) {
-                display: none; // Miejsce + Data
-            }
-        }
-    }
-}
+
+
+
+
+
+

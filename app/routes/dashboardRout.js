@@ -25,12 +25,38 @@ router.get('/dashboard/it', async (req, res) => {
 
   const countNewTickets = countRows[0].count;
 
+const countRowsInProgres = await db.query(
+    'SELECT COUNT(*) AS count FROM tickets WHERE status_zgloszenia = ?',
+    ['in_progress']
+  );
+
+  const countInProgres = countRowsInProgres[0].count;
+
+
+  const countRowsCritic = await db.query(
+    'SELECT COUNT(*) AS count FROM tickets WHERE status_zgloszenia = ?',
+    ['in_progress']
+  );
+
+  const countCritic = countRowsCritic[0].count;
+
+    const countRowsDone = await db.query(
+    'SELECT COUNT(*) AS count FROM tickets WHERE status_zgloszenia = ?',
+    ['in_progress']
+  );
+
+  const countDone = countRowsDone[0].count;
+
+
   res.render('pages/dashboard/it', {
     title: 'Dział IT - Nowe zgłoszenia',
     navItems: '',
     layout: 'layouts/dashboardLayouts',
     tickets,
-    countNewTickets
+    countNewTickets,
+    countInProgres,
+    countCritic,
+    countDone
   });
 });
 

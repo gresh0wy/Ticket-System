@@ -1,9 +1,9 @@
 <main class="dashboard__main">
     <section class="status">
-        <div class="status__newTickets"> <h2>nowe zgoszenia:</h2> <%- countNewTickets -%></div>
-        <div class="status__inProgres"></div>
-        <div class="status__critic"></div>
-        <div class="status__done"></div>
+        <div class="status__newTickets statusItem"> <p>nowe zgłoszenia: </p>  <span> <%- countNewTickets -%></span></div>
+        <div class="status__inProgres statusItem"><p>zgłoszenia w trakcie: </p>  <span> <%- countInProgres -%></span></div>
+        <div class="status__critic statusItem"><p>krytyczne zgłoszenia: </p>  <span> <%- countCritic -%></span></div>
+        <div class="status__done statusItem"><p>wykonane zgłoszenia: </p>  <span> <%- countDone -%></span></div>
     </section>
 <div class="tickets">
 
@@ -16,7 +16,7 @@
                 <th>Zgłaszający</th>
                 <th>Miejsce</th>
                 <th>Temat</th>
-              
+                <th>Przypisane do</th>
                 <th>Priorytet</th>
                 <th>Data utworzenia</th>
                 <th>Akcje</th>
@@ -29,6 +29,8 @@
                     <td><%= ticket.imie_nazwisko %></td>
                     <td><%= ticket.miejsce_zdarzenia %></td>
                     <td><%= ticket.temat_zgloszenia %></td>
+                   <td><%= ticket.przypisane_do ? ticket.przypisane_do : "brak" %></td>
+
                     <td>
                         <span class="badge bg-<%= ticket.priorytet_zgloszenia === 'high' ? 'danger' : ticket.priorytet_zgloszenia === 'medium' ? 'warning' : 'secondary' %>">
                             <%= ticket.priorytet_zgloszenia %>
