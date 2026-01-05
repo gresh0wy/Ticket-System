@@ -2,191 +2,187 @@
 @use "../reset";
 
 body {
-    font-size: 1.6rem;
+  font-size: 1.6rem;
+  min-height: 100%;
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
 }
 
 .dashboard {
-    position: fixed;
-    inset: 0;
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 80px 1fr 60px;
-    grid-template-areas:
-        "aside nav"
-        "aside main"
-        "aside main";
+  position: absolute; // lub fixed, jeśli dashboard ma być nad innymi elementami
+  inset: 0;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 80px 1fr 60px;
+  grid-template-areas:
+    "aside nav"
+    "aside main"
+    "aside footer";
 }
 
 .dashboard__nav {
-    grid-area: nav;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  grid-area: nav;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 2rem;
+
+  .dashboard__nav-left {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-
     gap: 2rem;
+    flex: 1;
+  }
 
-    .dashboard__nav-left {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-        flex: 1;
+  .dashboard__nav-title {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .dashboard__search {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+
+    .dashboard__search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6c757d;
+      font-size: 20px;
+      pointer-events: none;
     }
 
-    .dashboard__nav-title {
+    input {
+      width: 100%;
+      padding: 12px 12px 12px 44px;
+      background-color: #f0f2f5;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.6rem;
+      transition: all 0.2s;
+
+      &:focus {
+        outline: none;
+        background-color: white;
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+      }
+    }
+  }
+
+  .dashboard__nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .dashboard__notifications {
+    position: relative;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #495057;
+    cursor: pointer;
+
+    .dashboard__notifications-badge {
+      position: absolute;
+      top: -6px;
+      right: -6px;
+      background: #dc3545;
+      color: white;
+      font-size: 1.2rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .dashboard__user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .dashboard__user-info {
+      text-align: right;
+
+      .dashboard__user-greeting {
         margin: 0;
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: var(--text);
+        font-weight: 500;
+      }
+
+      .dashboard__user-role {
+        margin: 0;
+        font-size: 1.4rem;
+        color: #6c757d;
+      }
     }
 
-    .dashboard__search {
-        position: relative;
-        flex: 1;
-        max-width: 400px;
+    .dashboard__user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid #e9ecef;
 
-        .dashboard__search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6c757d;
-            font-size: 20px;
-            pointer-events: none;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px 12px 12px 44px;
-            background-color: #f0f2f5;
-            border: none;
-            border-radius: 12px;
-            font-size: 1.6rem;
-            transition: all 0.2s;
-
-            &:focus {
-                outline: none;
-                background-color: white;
-                box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
-            }
-        }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
-
-    .dashboard__nav-right {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-    }
-
-    .dashboard__notifications {
-        position: relative;
-        background: none;
-        border: none;
-        font-size: 24px;
-        color: #495057;
-        cursor: pointer;
-
-        .dashboard__notifications-badge {
-            position: absolute;
-            top: -6px;
-            right: -6px;
-            background: #dc3545;
-            color: white;
-            font-size: 1.6rem;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
-
-    .dashboard__user {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        .dashboard__user-info {
-            text-align: right;
-
-            .dashboard__user-greeting {
-                margin: 0;
-                font-weight: 500;
-            }
-
-            .dashboard__user-role {
-                margin: 0;
-                font-size: 1.6rem;
-                color: #6c757d;
-            }
-        }
-
-        .dashboard__user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #e9ecef;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
+  }
 }
 
 .dashboard__aside {
-    grid-area: aside;
-    background: var(--card);
-    border-right: 1px solid var(--border);
-    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
-    overflow-y: auto;
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border-right: 1px solid var(--border);
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
 
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  .dashboard__logo {
+    flex-shrink: 0;
+    padding: 20px;
 
-    .dashboard__logo {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-
-        a {
-            text-decoration: none;
-            font-size: 2.5rem;
-        }
-
-        padding: 20px;
-        flex-shrink: 0;
-
+    a {
+      text-decoration: none;
+      font-size: 2.5rem;
+      color: var(--text);
     }
+  }
 
-    .dashboard__buttons {
-        flex: 1 1 auto;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-        min-height: 0;
-    }
+  .dashboard__buttons {
+    flex: 1;
+    min-height: 0;              // KLUCZOWE – umożliwia scroll wewnątrz
+    overflow-y: auto;           // SCROLL TYLKO TUTAJ
+    padding: 0 20px;
 
     .dashboard__top {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding-bottom: 20px;
 
-        a {
-            text-decoration: none;
-            color: #404347;
-        }
-    }
+      a {
+        text-decoration: none;
+        color: #404347;
+      }
 
-    .dashboard__top-button {
+      .dashboard__top-button {
         padding: 12px 16px;
         background-color: #e9ecef;
         border-radius: 8px;
@@ -194,365 +190,81 @@ body {
         cursor: pointer;
         transition: background-color 0.2s;
 
-
-
         &:hover {
-            background-color: #dee2e6;
+          background-color: #dee2e6;
         }
-
+      }
     }
+  }
 
-    .dashboard__bottom {
-        margin-top: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        border-top: 1px solid var(--border);
-    }
-
-    .dashboard__bottom-user-data {
-        padding: 10px 0;
-        color: #6c757d;
-        font-size: 0.9rem;
-    }
-
-    .dashboard__bottom-button {
-        padding: 12px 16px;
-        background-color: #f0f2f5;
-        color: #404347;
-        border-radius: 8px;
-        text-align: center;
-        cursor: pointer;
-    }
-}
-
-.dashboard__content {
+  .dashboard__bottom {
+    flex-shrink: 0;
+    margin-top: auto;
+    border-top: 1px solid var(--border);
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
-    height: 90vh;
-    width: 100%;
-    overflow-y: auto;
-    box-sizing: border-box;
+    gap: 15px;
 
-    .dashboard__up {
-        flex: 0 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        margin: 2rem;
-        padding: 1.5rem;
-
-        box-sizing: border-box;
-
-        .dashboard__status {
-            height: 120px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            border: 1px solid var(--border);
-            background-color: white;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-
-
+    .dashboard__bottom-user-data {
+      padding: 10px 0;
+      color: #6c757d;
+      font-size: 0.9rem;
     }
 
-
-    .dashboard__bottom {
-        display: flex;
-        flex: 1;
-        flex-direction: row;
-
-        .dashboard__left {
-            flex: 1 1 80%;
-            display: flex;
-            flex-direction: column;
-            margin: 2em;
-
-
-            .dashboard__left-top {
-                flex: 0 1 40%;
-                border-radius: 12px;
-                background: var(--card);
-                border: 1px solid var(--border);
-
-            }
-
-            .dashboard__left-bottom {
-                // opcjonalnie: padding lub margin jeśli potrzeba
-            }
-
-            .ticket-card {
-                background: var(--card, #ffffff);
-                border: 1px solid var(--border, #dbe0e6);
-                border-radius: 12px;
-
-
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-                display: flex;
-                flex-direction: column;
-
-                &__header {
-                    padding: 20px;
-                    border-bottom: 1px solid var(--border-light, #f0f2f5);
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-
-                &__title {
-                    font-size: 1.6rem;
-                    font-weight: 700;
-                    color: var(--text-primary, #111418);
-                    margin: 0;
-                }
-
-                &__view-all {
-                    font-size: 1.6rem;
-                    font-weight: 500;
-                    color: var(--primary, #0d6efd);
-                    background: none;
-                    border: none;
-                    cursor: pointer;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                &__table-wrapper {
-                    overflow-x: auto;
-                    max-height: 420px;
-                    overflow-y: auto;
-                }
-            }
-
-            .ticket-table {
-                width: 100%;
-                border-collapse: collapse;
-
-                &__head {
-                    background: var(--table-header-bg, #f5f7f8);
-
-                    th {
-                        padding: 12px 20px;
-                        text-align: left;
-                        font-size: 1.6rem;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                        letter-spacing: 0.05em;
-                        color: var(--text-muted, #60758a);
-
-                        &.text-right {
-                            text-align: right;
-                        }
-                    }
-                }
-
-                &__body {
-                    .ticket-row {
-                        transition: background-color 0.2s;
-                        cursor: pointer;
-
-                        &:hover {
-                            background: var(--hover-bg, #f9fafb);
-                        }
-
-                        td {
-                            padding: 16px 20px;
-                            vertical-align: middle;
-                        }
-                    }
-                }
-            }
-
-            .ticket-id {
-                font-weight: 500;
-                color: var(--text-primary, #111418);
-            }
-
-            .ticket-subject {
-                &__title {
-                    font-weight: 600;
-                    color: var(--text-primary, #111418);
-                    margin-bottom: 4px;
-                }
-
-                &__location {
-                    font-size: 1.6rem;
-                    color: var(--text-muted, #60758a);
-                }
-            }
-
-            .ticket-reporter {
-                display: flex;
-                align-items: center;
-                gap: 8px;
-            }
-
-            .avatar {
-                width: 28px;
-                height: 28px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.6rem;
-                font-weight: 700;
-                color: white;
-
-                &--blue {
-                    background: #3b82f6;
-                }
-
-                &--purple {
-                    background: #a855f7;
-                }
-
-                &--gray {
-                    background: #6b7280;
-                }
-
-                &--teal {
-                    background: #14b8a6;
-                }
-            }
-
-            .badge {
-                display: inline-flex;
-                align-items: center;
-                gap: 4px;
-                padding: 4px 10px;
-                border-radius: 6px;
-                font-size: 1.6rem;
-                font-weight: 600;
-
-                &--critical {
-                    background: #fee2e2;
-                    color: #991b1b;
-                }
-
-                &--high {
-                    background: #fed7aa;
-                    color: #9a3412;
-                }
-
-                &--low {
-                    background: #d1fae5;
-                    color: #166534;
-                }
-
-                &--new {
-                    background: #dbeafe;
-                    color: #1e40af;
-                }
-
-                &--in-progress {
-                    background: #fef3c7;
-                    color: #92400e;
-                }
-
-                &--waiting {
-                    background: #e5e7eb;
-                    color: #374151;
-                }
-            }
-
-            .ticket-time {
-                color: var(--text-muted, #60758a);
-                font-size: 1.6rem;
-            }
-
-            .text-right {
-                text-align: right;
-            }
-
-            .dashboard__left-bottom {
-                flex: 1 1 60%;
-                margin-top: 1em;
-                border-radius: 12px;
-                background: var(--card);
-                border: 1px solid var(--border);
-            }
-        }
-
-        .dashboard__right {
-            flex: 1 1 20%;
-            display: flex;
-            flex-direction: column;
-            margin: 2em;
-            background-color: tomato;
-
-
-            .dashboard__right-top {
-                flex: 0 1 60%;
-
-                border-radius: 12px;
-                background: var(--card);
-                border: 1px solid var(--border);
-
-            }
-
-            .dashboard__right-bottom {
-                flex: 0 1 40%;
-                margin-top: 1em;
-                border-radius: 12px;
-                background: var(--card);
-                border: 1px solid var(--border);
-            }
-        }
+    .dashboard__bottom-button {
+      padding: 12px 16px;
+      background-color: #f0f2f5;
+      color: #404347;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer;
     }
-
-    // ========================================
-    // RESPONSIVE – poniżej 992px wszystko pionowo
-    // ========================================
-    @media (max-width: 992px) {
-        .dashboard__bottom {
-            flex-direction: column; // jedna kolumna
-
-            .dashboard__left {
-                flex: 1 1 auto; // pełna szerokość
-                width: 100%;
-            }
-
-            .dashboard__right {
-                flex: 1 1 auto; // pełna szerokość
-                width: 100%;
-            }
-        }
-    }
-
-    // Opcjonalnie: jeszcze lepsze dopasowanie na bardzo małych ekranach
-    @media (max-width: 576px) {
-
-        .dashboard__up,
-        .dashboard__left,
-        .dashboard__right,
-        .dashboard__left>*,
-        .dashboard__right>* {
-            margin: 0.5em; // mniejsze marginesy na telefonach
-        }
-    }
+  }
 }
 
 .dashboard__footer {
-    grid-area: footer;
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+  grid-area: footer;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 
+// ========================================
+// RESPONSIVE – poniżej 992px wszystko pionowo
+// ========================================
+@media (max-width: 992px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 60px auto;
+    grid-template-areas:
+      "nav"
+      "main"
+      "footer"
+      "aside";
+  }
+
+  .dashboard__aside {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+// Opcjonalnie: mniejsze marginesy na telefonach
+@media (max-width: 576px) {
+  .dashboard__nav {
+    padding: 1rem;
+  }
+
+  .dashboard__aside .dashboard__logo,
+  .dashboard__aside .dashboard__buttons,
+  .dashboard__aside .dashboard__bottom {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

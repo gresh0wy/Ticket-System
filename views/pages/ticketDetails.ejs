@@ -1,26 +1,83 @@
-<h1>Zgłoszenie #<%= ticket.id %></h1>
+<h1>Zgłoszenie #<%= ticket.id %>
+</h1>
 
 <hr>
 
-<p><strong>Imię i nazwisko:</strong> <%= ticket.imie_nazwisko %></p>
-<p><strong>Numer wewnętrzny:</strong> <%= ticket.numer_wewnetrzny %></p>
-<p><strong>Miejsce zdarzenia:</strong> <%= ticket.miejsce_zdarzenia %></p>
-<p><strong>Dział docelowy:</strong> <%= ticket.dzial_docelowy %></p>
-<p><strong>Kategoria:</strong> <%= ticket.kategoria_zgloszenia %></p>
-<p><strong>Temat:</strong> <%= ticket.temat_zgloszenia %></p>
+<p><strong>Imię i nazwisko:</strong>
+    <%= ticket.imie_nazwisko %>
+</p>
+<p><strong>Numer wewnętrzny:</strong>
+    <%= ticket.numer_wewnetrzny %>
+</p>
+<p><strong>Miejsce zdarzenia:</strong>
+    <%= ticket.miejsce_zdarzenia %>
+</p>
+<p><strong>Dział docelowy:</strong>
+    <%= ticket.dzial_docelowy %>
+</p>
+<p><strong>Kategoria:</strong>
+    <%= ticket.kategoria_zgloszenia %>
+</p>
+<p><strong>Temat:</strong>
+    <%= ticket.temat_zgloszenia %>
+</p>
 
 <hr>
 
 <p><strong>Opis zgłoszenia:</strong></p>
-<p><%= ticket.opis_zgloszenia %></p>
+<p>
+    <%= ticket.opis_zgloszenia %>
+</p>
 
 <hr>
 
-<p><strong>Priorytet:</strong> <%= ticket.priorytet_zgloszenia %></p>
-<p><strong>Powtarzalność:</strong> <%= ticket.powtarzalnosc %></p>
-<p><strong>Utworzone przez:</strong> <%= ticket.utworzone_przez %></p>
+<p><strong>Status:</strong>
+    <%= ticket.status_zgloszenia %>
+</p>
+<p><strong>Priorytet:</strong>
+    <%= ticket.priorytet_zgloszenia %>
+</p>
+<p><strong>Powtarzalność:</strong>
+    <%= ticket.powtarzalnosc %>
+</p>
+<p><strong>Utworzone przez:</strong>
+    <%= ticket.utworzone_przez %>
+</p>
 
 <% if (ticket.created_at) { %>
-    <p><strong>Data utworzenia:</strong> <%= ticket.created_at %></p>
-<% } %>
-    <button onclick="history.back()">Go Back</button>
+    <p><strong>Data utworzenia:</strong>
+        <%= ticket.created_at %>
+    </p>
+    <% } %>
+
+
+
+
+        <form action="/zgloszenie/<%= ticket.id %>/status" method="POST">
+            <label for="status"><strong>Status zgłoszenia:</strong></label>
+            <select name="status_zgloszenia" id="status">
+                <option value="new" <%=ticket.status_zgloszenia==='new' ? 'selected' : '' %>>Nowe</option>
+                <option value="in_progress" <%=ticket.status_zgloszenia==='in_progress' ? 'selected' : '' %>>W
+                    realizacji</option>
+                <option value="closed" <%=ticket.status_zgloszenia==='closed' ? 'selected' : '' %>>Zamknięte</option>
+                <option value="canceled" <%=ticket.status_zgloszenia==='canceled' ? 'selected' : '' %>>Anulowane
+                </option>
+            </select>
+            <button type="submit">
+                Zapisz status
+            </button>
+        </form>
+
+        <form action="/zgloszenie/<%= ticket.id %>/priorytet" method="POST">
+            <label for="priorytet"><strong>Priorytet zgłoszenia:</strong></label>
+            <select name="priorytet_zgloszenia" id="priorytet">
+                <option value="low" <%=ticket.priorytet_zgloszenia==='low' ? 'selected' : '' %>>Niski</option>
+                <option value="medium" <%=ticket.priorytet_zgloszenia==='medium' ? 'selected' : '' %>>Średni</option>
+                <option value="high" <%=ticket.priorytet_zgloszenia==='high' ? 'selected' : '' %>>Wysoki</option>
+            </select>
+            <button type="submit">
+                Zapisz priorytet
+            </button>
+        </form>
+
+        <button onclick="history.back()">Go Back</button>

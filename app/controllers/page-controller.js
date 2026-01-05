@@ -55,19 +55,18 @@ class pageController {
 
             res.render('pages/ticketDetails', {
                 title: `Zgłoszenie #${id}`,
-                ticket: rows[0]
+                ticket: rows[0],
+                layout: 'layouts/dashboardLayouts',
+                navItems : ''
             });
 
         } catch (err) {
             console.error('Błąd SQL:', err);
             res.status(500).send('Błąd pobierania zgłoszenia');
         }
+             
+
     }
-
-
-
-
-
 
 
 
@@ -124,7 +123,79 @@ class pageController {
     }
 
 
+async updateTicketStatus(req, res) {
+    const { id } = req.params;
+    const { status_zgloszenia } = req.body;
 
+    const allowedStatuses = ['new', 'in_progress', 'closed', 'canceled'];
+
+    // Walidacja statusu
+    if (!allowedStatuses.includes(status_zgloszenia)) {
+        return res.redirect(`/zgloszenie/${id}?msg=invalid_status`);
+    }
+
+    try {
+        const conn = await pool.getConnection();
+
+        const result = await conn.query(
+            `UPDATE tickets 
+             SET status_zgloszenia = ? 
+             WHERE id = ?`,
+            [status_zgloszenia, id]
+        );
+
+        conn.release();
+
+        if (result.affectedRows === 0) {
+            return res.redirect(`/zgloszenie/${id}?msg=not_found`);
+        }
+
+        // Sukces
+        res.redirect(`/zgloszenie/${id}?msg=success`);
+
+    } catch (err) {
+        console.error('Błąd przy aktualizacji statusu:', err);
+        res.redirect(`/zgloszenie/${id}?msg=error`);
+    }
+}
+
+async updateTicketPriority(req, res) {
+    const { id } = req.params;
+    const { priorytet_zgloszenia } = req.body;
+
+    const allowedPriorities = ['low', 'medium', 'high'];
+
+    // Walidacja
+    if (!allowedPriorities.includes(priorytet_zgloszenia)) {
+        return res.redirect(`/zgloszenie/${id}?msg=invalid_priority`);
+    }
+
+    try {
+        const conn = await pool.getConnection();
+
+        const result = await conn.query(
+            `UPDATE tickets 
+             SET priorytet_zgloszenia = ? 
+             WHERE id = ?`,
+            [priorytet_zgloszenia, id]
+        );
+
+        conn.release();
+
+        if (result.affectedRows === 0) {
+            return res.redirect(`/zgloszenie/${id}?msg=not_found`);
+        }
+
+        // Sukces
+        res.redirect(`/zgloszenie/${id}?msg=priority_success`);
+
+    } catch (err) {
+        console.error('Błąd przy aktualizacji priorytetu:', err);
+        res.redirect(`/zgloszenie/${id}?msg=error`);
+    }
+}
+
+    
     // OBSŁUGA BŁEDÓW 404 I 403
     notFound(req, res) {
         res.status(404).render('errors/404',
