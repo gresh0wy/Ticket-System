@@ -13,7 +13,7 @@ body {
 }
 
 .dashboard {
-  position: absolute; 
+  position: absolute;
   inset: 0;
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -23,6 +23,21 @@ body {
     "aside main"
     "aside footer";
 }
+
+// .dashboard__nav {
+//   grid-column: 2 / -1;
+//   grid-row: 1 / 2;
+// }
+
+// .dashboard__aside {
+//   grid-column: 1 / 2;
+//   grid-row: 1 / -1;
+// }
+
+// .dashboard__main {
+//   grid-column: 2 / -1;
+//   grid-row: 2 / -1;
+// }
 
 .dashboard__nav {
   grid-area: nav;
@@ -157,7 +172,7 @@ body {
 
   .dashboard__buttons {
     flex: 1;
-    min-height: 0; 
+    min-height: 0;
     overflow-y: auto;
     padding: 0 20px;
 

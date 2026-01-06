@@ -65,7 +65,7 @@
                     <div class="itemCat1 cat-<%= cat.key %>">
                         <div class="catLeft">
                             <span class="catIcon">
-                                <%= cat.icon %>
+                                <%- cat.icon %>
                             </span>
                             <p>
                                 <%= cat.name %>
@@ -81,9 +81,9 @@
                             <% } %>
         </div>
 
-        <div class="rightSide lastUpdate">
+        <!-- <div class="rightSide lastUpdate">
             <p>Aktualności</p>
-        </div>
+        </div> -->
 
         <div class="analiticPanel">
             <h1>Panel analityczny</h1>
@@ -91,7 +91,10 @@
         </div>
 
         <div class="tickets">
-            <p>Najnowsze zgłoszenia</p>
+            <div class="topSettings">
+                <p>Najnowsze zgłoszenia</p>
+                <a href="">pokaż więcej</a>
+            </div>
 
             <% if (tickets && tickets.length> 0) { %>
                 <table class="table table-striped">
@@ -104,7 +107,7 @@
                             <th>Przypisane do</th>
                             <th>Priorytet</th>
                             <th>Data utworzenia</th>
-                            <th>Akcje</th>
+                            <th class="actionTable">Akcje</th>
                         </tr>
                     </thead>
                     <tbody>
