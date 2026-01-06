@@ -53,7 +53,7 @@
 
 
 
-        <form action="/zgloszenie/<%= ticket.id %>/status" method="POST">
+        <form action="/ticket/<%= ticket.id %>/status" method="POST">
             <label for="status"><strong>Status zgłoszenia:</strong></label>
             <select name="status_zgloszenia" id="status">
                 <option value="new" <%=ticket.status_zgloszenia==='new' ? 'selected' : '' %>>Nowe</option>
@@ -68,7 +68,7 @@
             </button>
         </form>
 
-        <form action="/zgloszenie/<%= ticket.id %>/priorytet" method="POST">
+        <form action="/ticket/<%= ticket.id %>/priorytet" method="POST">
             <label for="priorytet"><strong>Priorytet zgłoszenia:</strong></label>
             <select name="priorytet_zgloszenia" id="priorytet">
                 <option value="low" <%=ticket.priorytet_zgloszenia==='low' ? 'selected' : '' %>>Niski</option>

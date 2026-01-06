@@ -1,0 +1,151 @@
+<main class="dashboard__main">
+    <section class="status">
+        <div class="status__newTickets statusItem">
+            <div class="top">
+                <p>nowe zgłoszenia: </p>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#2282f0">
+                        <path
+                            d="M480-160v-80h120l180-240-180-240H160v200H80v-200q0-33 23.5-56.5T160-800h440q19 0 36 8.5t28 23.5l216 288-216 288q-11 15-28 23.5t-36 8.5H480Zm-10-320ZM200-120v-120H80v-80h120v-120h80v120h120v80H280v120h-80Z" />
+                    </svg>
+                </span>
+            </div>
+            <span class="count"><%- countNewTickets %></span>
+        </div>
+
+        <div class="status__inProgres statusItem">
+            <div class="top">
+                <p>zgłoszenia w trakcie:</p>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#fdc67d">
+                        <path
+                            d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z" />
+                    </svg>
+                </span>
+            </div>
+            <span class="count"><%- countInProgres %></span>
+        </div>
+
+        <div class="status__critic statusItem">
+            <div class="top">
+                <p>krytyczne zgłoszenia:</p>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#dc2626">
+                        <path
+                            d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z" />
+                    </svg>
+                </span>
+            </div>
+            <span class="count"><%- countCritic %></span>
+        </div>
+
+        <div class="status__done statusItem">
+            <div class="top">
+                <p>wykonane zgłoszenia:</p>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#50af59">
+                        <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z" />
+                    </svg>
+                </span>
+            </div>
+            <span class="count"><%- countDone %></span>
+        </div>
+    </section>
+
+    <section class="mainSection">
+        <div class="rightSide statCategory">
+            <p class="statTitle">Kategorie Zgłoszeń</p>
+
+            <% if (categories && categories.length> 0) { %>
+                <% categories.forEach(cat=> { %>
+                    <div class="itemCat1 cat-<%= cat.key %>">
+                        <div class="catLeft">
+                            <span class="catIcon">
+                                <%= cat.icon %>
+                            </span>
+                            <p>
+                                <%= cat.name %>
+                            </p>
+                        </div>
+                        <span class="catCount">
+                            <%= categoryCounts[cat.key] || 0 %>
+                        </span>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <p class="text-muted">Brak zdefiniowanych kategorii dla tego działu.</p>
+                            <% } %>
+        </div>
+
+        <div class="rightSide lastUpdate">
+            <p>Aktualności</p>
+        </div>
+
+        <div class="analiticPanel">
+            <h1>Panel analityczny</h1>
+            <p>w budowie...</p>
+        </div>
+
+        <div class="tickets">
+            <p>Najnowsze zgłoszenia</p>
+
+            <% if (tickets && tickets.length> 0) { %>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Zgłaszający</th>
+                            <th>Miejsce</th>
+                            <th>Temat</th>
+                            <th>Przypisane do</th>
+                            <th>Priorytet</th>
+                            <th>Data utworzenia</th>
+                            <th>Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% tickets.forEach(ticket=> { %>
+                            <tr>
+                                <td>
+                                    <%= ticket.id %>
+                                </td>
+                                <td>
+                                    <%= ticket.imie_nazwisko %>
+                                </td>
+                                <td>
+                                    <%= ticket.miejsce_zdarzenia %>
+                                </td>
+                                <td>
+                                    <%= ticket.temat_zgloszenia %>
+                                </td>
+                                <td>
+                                    <%= ticket.przypisane_do || "brak" %>
+                                </td>
+                                <td>
+                                    <span
+                                        class="badge bg-<%= ticket.priorytet_zgloszenia === 'high' ? 'danger' : ticket.priorytet_zgloszenia === 'medium' ? 'warning' : 'secondary' %>">
+                                        <%= ticket.priorytet_zgloszenia || 'low' %>
+                                    </span>
+                                </td>
+                                <td>
+                                    <%= new Date(ticket.data_utworzenia).toLocaleString('pl-PL') %>
+                                </td>
+                                <td>
+                                    <a href="/ticket/<%= ticket.id %>" class="btn btn-sm btn-primary">Szczegóły</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <div class="alert alert-info">
+                        <strong>Brak nowych zgłoszeń</strong> – wszystko działa sprawnie! 👍
+                    </div>
+                    <% } %>
+        </div>
+    </section>
+</main>
