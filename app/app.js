@@ -26,6 +26,7 @@ app.use(require('./routes/dashboardRout'))
 //api
 
 app.use(require('./routes/api/ticketsRouter'))
+app.use(require('./routes/api/authRouter'))
 
 //errory
 app.use(require('./routes/errorRout'))
