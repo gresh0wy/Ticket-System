@@ -47,3 +47,20 @@ CREATE TABLE tickets (
     INDEX idx_kategoria (kategoria_zgloszenia),
     INDEX idx_priorytet (priorytet_zgloszenia)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+CREATE TABLE users (
+    id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    imie            VARCHAR(60) NOT NULL,
+    nazwisko        VARCHAR(80) NOT NULL,
+    username        VARCHAR(50) NOT NULL UNIQUE,
+    password        VARCHAR(255) NOT NULL,
+    email           VARCHAR(120) NOT NULL UNIQUE,
+    is_admin        TINYINT(1) NOT NULL DEFAULT 0,(0 = nie, 1 = tak)
+    
+    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    INDEX idx_username (username),
+    INDEX idx_email (email)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
