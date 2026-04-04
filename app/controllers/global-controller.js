@@ -1,5 +1,6 @@
 class GlobalConroler {
     showHome(req, res) {
+
         res.status(200).json({ message: 'strona główna' })
     }
     showLogin(req, res) {

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const pool = require('../database/dbConfig');
 const bcrypt = require('bcrypt');
+const { populate } = require('dotenv');
 const jwt = require('jsonwebtoken');
 
 class authController {
@@ -25,6 +26,12 @@ class authController {
             const isMatch = await bcrypt.compare(password, user.password) //sprawdzenie czy hasło się zgadza
 
             const token = jwt.sign({ id: user.id, admin: user.is_admin }, process.env.JWT_SECRET, { expiresIn: '20m' })
+            res.cookie('authToken', token, {
+                httpOnly: true,
+                secure: true,
+                sameSite: 'strict',
+                maxAge: 12000
+            });
 
             if (isMatch) {
                 return res.status(200).json({ message: 'pomyślnie zalogowano', token: token })
@@ -86,6 +93,70 @@ class authController {
             }
             res.status(500).json({ error: 'Błąd serwera' })
         }
+    }
+
+    logout = async (req, res) => {
+
+        // w trakcie budowy
+        try {
+            res.clearCookie('authToken', {
+                httpOnly: true
+            })
+            return res.status(200).json({ message: 'wylogowano pomyślnie' })
+        } catch (error) {
+            res.status(500).json({ message: 'błąd serwera' })
+        }
+    }
+
+    edit = async (req, res) => {
+        try {
+            const { id } = req.params
+            const { imie, nazwisko, username, password, email, is_admin } = req.body
+
+            const [row] = await pool.query(
+                'SELECT * FROM users WHERE id = ?',
+                [id]
+            )
+            if (row.length === 0) {
+                return res.status(404).json({ message: 'brak uzytkonika o podanym id' })
+            }
+
+
+
+            // trzeba stworzyć dynamiczne zapytanie 
+            const hashPass = await bcrypt.hash(password, 12)
+            const [edit] = await pool.query(
+                'UPDATE users SET imie = ?, nazwisko = ? , username = ?, password = ?, email = ?, is_admin = ? WHERE id = ?',
+                [imie, nazwisko, username, hashPass, email, is_admin, id]
+            )
+
+            res.status(200).json(edit)
+        } catch (error) {
+            res.status(500).json({ message: `błąd serwera: ${error}` })
+        }
+    }
+
+    delete = async (req, res) => {
+        const { id } = req.params
+        const [checkUsers] = await pool.query(
+            'SELECT * FROM users WHERE id = ?',
+            [id]
+        )
+        if (checkUsers.length === 0) {
+            return res.status(404).json({ message: 'uzytkonik nie istnieje' })
+        }
+        try {
+
+
+            const [row] = await pool.query(
+                'DELETE FROM users WHERE id = ?',
+                [id]
+            )
+            res.status(200).json(row)
+        } catch (error) {
+            res.status(500).json({ message: 'błąd serwera' })
+        }
+
     }
 }
 

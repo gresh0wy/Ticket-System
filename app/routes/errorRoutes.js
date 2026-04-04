@@ -4,6 +4,5 @@ const ErrorControllers = require('../controllers/error-controllers')
 
 router.use(ErrorControllers.notFound)
 
-router.use(ErrorControllers.forbidden)
 
 module.exports = router

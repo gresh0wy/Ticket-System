@@ -1,14 +1,32 @@
+require('dotenv').config();
 const express = require('express')
 const app = express()
 const path = require('path')
-require('dotenv').config();
 const port = 3000
 
+// parser
+const cookieParser = require('cookie-parser')
+
+// bezpieczenstwo
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit')
+
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 20,
+    message: { error: 'Za dużo zapytań, spróbuj później' }
+})
+app.use('/auth/login', limiter)
+
+
+
 app.use(express.static('public'))
+app.use(helmet());
 
 // Middleware do parsowania formularzy
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser())
 
 // routes
 app.use(require('./routes/mainRoutes'))

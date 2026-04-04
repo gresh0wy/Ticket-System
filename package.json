@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app/app.js",
-    "sass": "sass src/sass/main.scss frontend/public/css/main.css --style=compressed"
+    "dev": "nodemon app/app.js"
   },
   "repository": {
     "type": "git",
@@ -22,15 +21,15 @@
   "homepage": "https://github.com/gresh0wy/Ticket-System#readme",
   "dependencies": {
     "bcrypt": "^6.0.0",
-    "dotenv": "^17.3.1",
-    "ejs": "^5.0.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.0",
     "express": "^5.2.1",
-    "express-ejs-layouts": "^2.5.1",
+    "express-rate-limit": "^8.3.2",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "mysql2": "^3.20.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14",
-    "sass": "^1.98.0"
+    "nodemon": "^3.1.14"
   }
 }
